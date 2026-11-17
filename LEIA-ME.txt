@@ -1,0 +1,3 @@
+Coloque aqui:
+- logo.png  -> logo original da LDRJ COMPOST (sem alterar proporção)
+- hero.jpg  -> fotografia de impacto do hero (opcional)
