@@ -1,128 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LDRJ COMPOST | Biotecnologia para resíduos agroindustriais</title>
-<meta name="description" content="LDRJ COMPOST: bioconversão com Hermetia illucens integrada à compostagem para resíduos de batata e esterco bovino. Grand Prix SAGA SENAI MG.">
-<meta property="og:title" content="LDRJ COMPOST">
-<meta property="og:description" content="Biotecnologia aplicada à transformação inteligente de resíduos agroindustriais.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07120b">
+<meta name="description" content="LDRJ COMPOST: sistema integrado de bioconversão com Hermetia illucens e compostagem para resíduos de batata e esterco bovino.">
+<title>LDRJ COMPOST | Biotecnologia aplicada à compostagem</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="progress" aria-hidden="true"></div>
-<header class="nav">
-  <a href="#inicio" class="brand" aria-label="LDRJ COMPOST">
-    <!-- Coloque a logo original em assets/logo.png (não é alterada nem distorcida) -->
-    <img src="assets/logo.png" alt="Logo LDRJ COMPOST" height="44" onerror="this.replaceWith(Object.assign(document.createElement('b'),{textContent:'LDRJ COMPOST'}))">
-  </a>
-  <button class="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
-  <nav id="menu">
-    <a href="#demanda">Demanda</a><a href="#solucao">Solução</a><a href="#processo">Como funciona</a><a href="#beneficios">Benefícios</a><a href="#validacao">Validação</a><a href="#grandprix" class="cta">Grand Prix</a>
-  </nav>
+<div class="progress" id="progress"></div>
+<header class="topbar">
+ <a class="brand" href="#inicio"><img src="assets/logo-ldrj-compost.jpg" alt="Logo LDRJ COMPOST"><span>LDRJ <b>COMPOST</b></span></a>
+ <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+ <nav id="menu"><a href="#demanda">A demanda</a><a href="#solucao">A solução</a><a href="#processo">Etapas</a><a href="#evidencias">Base científica</a><a href="#validacao">Validação</a><a href="#beneficios">Benefícios</a></nav>
+ <button class="palette" id="palette" title="Alternar paleta de cores" aria-label="Alternar paleta de cores">◐ <span>Visual</span></button>
 </header>
-
 <main>
-<section id="inicio" class="hero">
-  <div class="hero-bg"></div><div class="orb" aria-hidden="true"></div>
-  <div class="wrap hero-in">
-    <p class="eyebrow">Biotecnologia · Agroindústria · Inovação</p>
-    <h1>LDRJ<br>COMPOST</h1>
-    <p class="sub">Biotecnologia aplicada à transformação inteligente de resíduos agroindustriais.</p>
-    <p class="impact">Transformando desafios ambientais em soluções para o futuro da agricultura.</p>
-    <a href="#solucao" class="btn">Conheça a solução</a>
-  </div>
-  <svg class="hex" viewBox="0 0 200 200" aria-hidden="true"><polygon points="100,10 180,55 180,145 100,190 20,145 20,55" fill="none" stroke="#c8e63c" stroke-width="2"/><polygon points="100,45 150,72 150,128 100,155 50,128 50,72" fill="none" stroke="#c8e63c" stroke-width="1"/></svg>
+<section class="hero" id="inicio">
+ <div class="hero-glow"></div><div class="hero-grid"></div>
+ <div class="hero-content">
+  <p class="eyebrow"><i></i> BIOTECNOLOGIA · AGROINDÚSTRIA · INOVAÇÃO</p>
+  <img class="hero-logo" src="assets/logo-ldrj-compost.jpg" alt="Identidade visual LDRJ COMPOST">
+  <h1>Resíduos que ganham <em>um novo ciclo.</em></h1>
+  <p class="hero-copy">Bioconversão larval integrada à compostagem para aprimorar o tratamento de resíduos de batata e esterco bovino.</p>
+  <div class="hero-actions"><a class="btn primary" href="#solucao">Conheça nossa solução <span>↘</span></a><a class="btn ghost" href="#demanda">Entenda o desafio</a></div>
+  <div class="hero-tags"><span>Hermetia illucens</span><span>Bioconversão</span><span>Compostagem</span></div>
+ </div>
+ <div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div>
+ <a class="scroll-cue" href="#demanda">ROLE PARA EXPLORAR <b>↓</b></a>
+</section>
+<section class="section demand" id="demanda">
+ <div class="section-head"><p class="kicker">01 / O DESAFIO</p><h2>Uma questão importante para a <em>segurança do campo.</em></h2><p class="intro">A Fazenda Água Santa, em Perdizes–MG, aproveita resíduos da produção de batata e da criação de bovinos em confinamento por meio da compostagem. O desafio é avaliar e aprimorar a qualidade biológica do composto.</p></div>
+ <div class="demand-grid">
+  <article class="demand-visual"><img src="assets/etapa-1.jpg" alt="Estrutura agrícola protegida para o processamento de resíduos"><div class="img-caption">RESÍDUOS AGROPECUÁRIOS · FAZENDA ÁGUA SANTA</div></article>
+  <div class="demand-info"><div class="issue"><span>01</span><div><h3>Possível permanência de agentes biológicos</h3><p>Microrganismos de interesse sanitário podem persistir se o tratamento não for adequado. Essa possibilidade precisa ser investigada por análises.</p></div></div>
+  <div class="issue"><span>02</span><div><h3>Risco para o solo e as lavouras</h3><p>Um composto com qualidade biológica inadequada pode representar uma via de disseminação de agentes causadores de doenças agrícolas.</p></div></div>
+  <div class="issue"><span>03</span><div><h3>Impactos produtivos e econômicos</h3><p>Problemas sanitários nas áreas de cultivo podem comprometer a produção, gerar perdas e elevar custos.</p></div></div>
+  <div class="goal"><b>O que a demanda exige?</b><p>Melhorar o tratamento dos resíduos e aumentar a confiabilidade da qualidade do composto, sem perder de vista o aproveitamento da matéria orgânica.</p></div></div>
+ </div>
+ <p class="technical-note">Importante: a presença de patógenos no material não é presumida como fato. A avaliação microbiológica é parte da validação proposta.</p>
 </section>
 
-<div class="band" aria-hidden="true"><div><span>BIOCONVERSÃO</span><span>HERMETIA ILLUCENS</span><span>COMPOSTAGEM</span><span>AGRICULTURA</span><span>BIOCONVERSÃO</span><span>HERMETIA ILLUCENS</span><span>COMPOSTAGEM</span><span>AGRICULTURA</span></div></div>
-<section id="demanda" class="dark">
-  <div class="wrap">
-    <p class="eyebrow lime">01 · Nossa demanda</p>
-    <h2 class="rv">Controle de contaminantes biológicos na compostagem de resíduos de batata e esterco bovino.</h2>
-    <p class="lead rv">A Fazenda Água Santa, em Perdizes-MG, realiza compostagem de resíduos de batata e esterco bovino para produzir adubo orgânico, mas enfrenta dificuldades para garantir a qualidade biológica do composto, devido à possível permanência de agentes causadores de doenças.</p>
-    <ul class="risks">
-      <li class="rv tilt"><span>01</span>Contaminação do solo</li>
-      <li class="rv tilt"><span>02</span>Comprometimento das lavouras</li>
-      <li class="rv tilt"><span>03</span>Disseminação de doenças agrícolas</li>
-      <li class="rv tilt"><span>04</span>Perdas produtivas e econômicas</li>
-    </ul>
+<section class="section evidence" id="evidencias">
+ <div class="section-head"><p class="kicker">02 / BASE CIENTÍFICA</p><h2>O que o laudo mostra — e o que a <em>ciência já investigou.</em></h2><p class="intro">Esta seção conecta o diagnóstico recebido pela equipe a estudos publicados sobre os microrganismos identificados, a compostagem e a bioconversão com mosca-soldado-negra. Cada pesquisa é apresentada dentro dos limites do seu próprio experimento.</p></div>
+ <div class="lab-report">
+  <div class="lab-heading"><div><span class="lab-tag">DOCUMENTO DE REFERÊNCIA</span><h3>Laudo de quantificação molecular de microrganismos em composto</h3><p>Laudo nº 13545/2026 · Amostra identificada como “Composto teste”</p></div><span class="lab-icon">⌕</span></div>
+  <div class="result-grid">
+   <article class="result-card detected"><span class="result-status">PRESENÇA DETECTADA</span><h3><i>Fusarium</i> sp.</h3><strong>9,34 × 10³</strong><small>UFC/g — valor apresentado no laudo</small><p>O documento registra detecção e apresenta uma estimativa quantitativa para a amostra analisada.</p></article>
+   <article class="result-card detected"><span class="result-status">PRESENÇA DETECTADA</span><h3><i>Spongospora subterranea</i></h3><strong class="result-word">Detectado</strong><small>Contagem não realizada</small><p>O laudo informa que o microrganismo foi detectado, mas não foi possível realizar sua contagem.</p></article>
+   <article class="result-card not-detected"><span class="result-status">NÃO DETECTADO</span><h3><i>Verticillium</i> sp.</h3><strong class="result-word">Não detectado</strong><small>Na amostra analisada</small><p>O resultado não comprova ausência absoluta: a quantidade pode estar abaixo do limite de detecção do método.</p></article>
   </div>
+  <p class="lab-caveat"><b>Como interpretar:</b> o próprio laudo restringe o resultado à amostra entregue. Detecção molecular não demonstra, isoladamente, que o microrganismo esteja viável ou infectante. O documento também apresenta resultados em UFC/g associados a método RT-qPCR; a forma de conversão/interpretação dessa unidade deve ser confirmada com o laboratório responsável antes de comparações quantitativas.</p>
+ </div>
+ <div class="pathogen-grid">
+  <article class="pathogen-card"><img src="assets/etapa-8.jpg" alt="Análise laboratorial de amostras de composto"><div class="pathogen-copy"><span class="card-kicker">ALVO 01 · DETECTADO</span><h3><i>Fusarium</i> sp.</h3><p>O gênero inclui fungos que causam doenças em diferentes culturas. O laudo não identifica a espécie ou forma especial; por isso, estudos com <i>F. oxysporum</i> específicos são referências relacionadas, mas não identificam necessariamente o organismo desta amostra.</p><p class="investigate"><b>Questão de pesquisa:</b> acompanhar a presença e, quando possível, a viabilidade do organismo ao longo das etapas de tratamento.</p></div></article>
+  <article class="pathogen-card"><img src="assets/etapa-4.jpg" alt="Larvas e resíduos orgânicos em processamento"><div class="pathogen-copy"><span class="card-kicker">ALVO 02 · DETECTADO</span><h3><i>Spongospora subterranea</i></h3><p>É o agente associado à sarna-pulverulenta da batata. A revisão de 2024 descreve o patógeno, sua biologia e diferentes estratégias de manejo, incluindo medidas para reduzir o inóculo no solo.</p><p class="investigate"><b>Questão de pesquisa:</b> investigar a persistência de estruturas de resistência e métodos adequados para avaliar sua viabilidade.</p></div></article>
+  <article class="pathogen-card"><img src="assets/etapa-7.jpg" alt="Amostra de composto para avaliação"><div class="pathogen-copy"><span class="card-kicker">ALVO 03 · NÃO DETECTADO</span><h3><i>Verticillium</i> sp.</h3><p>O gênero inclui fungos causadores de murchas vasculares. Como o laudo não detectou <i>Verticillium</i> sp. e não especifica espécie, pesquisas com <i>V. dahliae</i> são referências de contexto, não evidência de presença na amostra.</p><p class="investigate"><b>Questão de pesquisa:</b> manter o acompanhamento e distinguir detecção molecular, viabilidade e capacidade de causar doença.</p></div></article>
+ </div>
+ <div class="research-heading"><p class="kicker">ARTIGOS E ESTUDOS</p><h3>Pesquisas que ajudam a formular as perguntas certas.</h3><p>Os estudos abaixo sustentam linhas de investigação. Eles não validam diretamente o sistema LDRJ COMPOST nem garantem o mesmo resultado para a mistura de resíduos da Fazenda Água Santa.</p></div>
+ <div class="research-grid">
+  <article class="research-card"><div class="research-meta"><span>2024</span><span>Bioconversão · microbiologia</span></div><h3>Inhibition of pathogenic microorganisms in solid organic waste via black soldier fly larvae-mediated management</h3><p><b>Shi et al. · Science of the Total Environment</b></p><p>Comparou resíduos de cozinha e esterco suíno em compostagem natural e em sistemas com larvas. A maior redução relativa de microrganismos potencialmente patogênicos ocorreu em condições específicas, incluindo ajuste inicial de pH para 7. O trabalho sustenta investigar a influência das larvas sobre comunidades microbianas, mas não testou a mistura exata de batata e esterco bovino da LDRJ.</p><a href="https://pubmed.ncbi.nlm.nih.gov/38176562/" target="_blank" rel="noopener noreferrer">Ler no PubMed ↗</a></article>
+  <article class="research-card"><div class="research-meta"><span>2024</span><span>Frass · Fusarium</span></div><h3>Suppressive Effect of Black Soldier Fly Larvae Frass on Fusarium Wilt Disease in Tomato Plants</h3><p><b>Arabzadeh et al. · Insects</b></p><p>Avaliou frass de larvas criadas em dietas diferentes em tomate inoculado com <i>Fusarium oxysporum</i> f. sp. <i>lycopersici</i>. O efeito supressivo variou conforme a dieta; um dos frass reduziu colonização radicular e severidade da doença. É evidência sobre frass e doença em tomate, não prova de sanitização dos resíduos nem de controle do <i>Fusarium</i> genérico do laudo.</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11354714/" target="_blank" rel="noopener noreferrer">Ler artigo completo ↗</a></article>
+  <article class="research-card"><div class="research-meta"><span>2004</span><span>Compostagem · fitopatógenos</span></div><h3>Eradication of plant pathogens and nematodes during composting: a review</h3><p><b>Noble & Roberts · Plant Pathology</b></p><p>Revisou combinações de temperatura e tempo para diversos patógenos. A revisão mostra que o resultado depende do organismo, do processo e da distribuição térmica; temperaturas máximas não garantem, sozinhas, higienização uniforme de toda a massa.</p><a href="https://doi.org/10.1111/j.0032-0862.2004.01059.x" target="_blank" rel="noopener noreferrer">Consultar revisão e DOI ↗</a></article>
+  <article class="research-card"><div class="research-meta"><span>2003</span><span>Fusarium · temperatura</span></div><h3>Temperature effect on Fusarium oxysporum f. sp. melonis survival during horticultural waste composting</h3><p><b>Suárez-Estrella et al. · Journal of Applied Microbiology</b></p><p>Estudou um isolado específico de <i>F. oxysporum</i> em resíduos hortícolas. Os resultados relacionaram a persistência do fungo com temperatura e duração do tratamento. A espécie/formae specialis e o resíduo estudado diferem do que o laudo da LDRJ identifica.</p><a href="https://pubmed.ncbi.nlm.nih.gov/12588556/" target="_blank" rel="noopener noreferrer">Ler no PubMed ↗</a></article>
+  <article class="research-card"><div class="research-meta"><span>2024</span><span>Batata · Spongospora</span></div><h3>Advancements in Spongospora subterranea: Current Knowledge, Management Strategies, and Research Gaps</h3><p><b>Strydom et al. · Potato Research</b></p><p>Revisão sobre a sarna-pulverulenta, o agente causal, avanços de pesquisa e estratégias de manejo. É uma referência para entender o patógeno específico detectado no laudo e as lacunas de conhecimento; não demonstra efeito da bioconversão larval sobre ele.</p><a href="https://link.springer.com/article/10.1007/s11540-024-09701-8" target="_blank" rel="noopener noreferrer">Ler revisão ↗</a></article>
+  <article class="research-card"><div class="research-meta"><span>2025</span><span>Chá de compostagem · Verticillium</span></div><h3>Compost Teas Reduce Verticillium dahliae Growth In Vitro via Direct and Volatile Effects</h3><p><b>Younes, Lockhart & Carpenter-Boggs · Sustainable Agricultural and Environmental Sciences</b></p><p>Testou preparações de chá de compostagem contra o crescimento micelial de <i>V. dahliae</i> em laboratório (in vitro), com inibição em diferentes condições. Os autores apontam a necessidade de validação adicional. O resultado não comprova eficácia em campo nem sobre <i>Verticillium</i> sp. desta amostra.</p><a href="https://onlinelibrary.wiley.com/doi/10.1002/sae2.70067" target="_blank" rel="noopener noreferrer">Ler artigo ↗</a></article>
+ </div>
+ <div class="evidence-limits"><span class="limits-icon">!</span><div><h3>O que ainda não está demonstrado</h3><ul><li>Os estudos não testaram exatamente a combinação de resíduos de batata e esterco bovino da Fazenda Água Santa.</li><li>Não foi localizada, entre estas referências, demonstração direta de que larvas eliminem <i>Spongospora subterranea</i>.</li><li>Redução de abundância, inibição em laboratório e eliminação de um patógeno viável são resultados diferentes.</li><li>Os resultados dependem de dieta das larvas, condições do processo, organismo-alvo e método de análise.</li></ul></div></div>
 </section>
-
-<section id="solucao" class="sand">
-  <div class="wrap split">
-    <div>
-      <p class="eyebrow earth">02 · Nossa solução</p>
-      <h2 class="rv">Bioconversão larval integrada à compostagem.</h2>
-      <p class="rv">A LDRJ COMPOST propõe um sistema integrado de bioconversão e compostagem para o tratamento dos resíduos de batata e esterco bovino da Fazenda Água Santa. A solução utiliza a criação própria da mosca-soldado-negra (<i>Hermetia illucens</i>), cujas larvas realizam o pré-tratamento biológico dos resíduos em módulos protegidos. Após essa etapa, as larvas são separadas por rampas de autocolheita, reservando parte para a continuidade da criação, enquanto o material residual segue para as leiras de compostagem existentes. O sistema contará com viveiros telados, compartimentos de processamento, estruturas de contenção e análises laboratoriais externas para avaliar a redução de massa e as alterações físico-químicas e microbiológicas do material. Dessa forma, a proposta integra a bioconversão larval à compostagem convencional, aproveitando a infraestrutura existente e buscando otimizar o tratamento dos resíduos agroindustriais.</p>
-    </div>
-    <figure class="rv">
-      <svg viewBox="0 0 420 300" role="img" aria-label="Esquema técnico: resíduos, módulo com larvas, rampa de autocolheita e leira de compostagem">
-        <rect width="420" height="300" rx="6" fill="#efe6d2"/>
-        <g fill="none" stroke="#2b3320" stroke-width="2.5">
-          <rect x="20" y="150" width="90" height="70" fill="#d9c9a3"/><text x="65" y="240" fill="#2b3320" stroke="none" font-size="12" text-anchor="middle">Resíduos</text>
-          <rect x="140" y="110" width="130" height="110" fill="#c8e63c"/><path d="M140 110l65-30 65 30"/><text x="205" y="240" fill="#2b3320" stroke="none" font-size="12" text-anchor="middle">Módulo protegido</text>
-          <path d="M270 180l60 30h-60z" fill="#c9622b"/><text x="320" y="240" fill="#2b3320" stroke="none" font-size="12" text-anchor="middle">Rampa</text>
-          <path d="M350 220q35-70 55 0z" fill="#6b7a3a"/><text x="378" y="240" fill="#2b3320" stroke="none" font-size="12" text-anchor="middle">Leira</text>
-          <path d="M112 185h26M272 195h-2M335 205l10 6" stroke-dasharray="4 4"/>
-        </g>
-        <text x="210" y="280" text-anchor="middle" font-size="11" fill="#555">Ilustração técnica conceitual (não é foto da fazenda)</text>
-      </svg>
-    </figure>
-  </div>
+<section class="section solution" id="solucao">
+ <div class="solution-top"><div><p class="kicker">03 / NOSSA RESPOSTA</p><h2>Bioconversão larval <em>integrada à compostagem.</em></h2></div><p class="solution-lead">Dois processos conectados: primeiro, as larvas realizam o pré-tratamento biológico de parte dos resíduos; depois, o material residual segue para as leiras de compostagem que a fazenda já utiliza.</p></div>
+ <div class="solution-feature"><div class="feature-image"><img src="assets/etapa-5.jpg" alt="Larvas de mosca-soldado-negra em material orgânico"><span class="floating-label">PRÉ-TRATAMENTO BIOLÓGICO</span></div><div class="feature-copy"><span class="number">01 — BIOCONVERSÃO</span><h3>Uma etapa biológica antes da compostagem</h3><p>A criação própria da mosca-soldado-negra (<i>Hermetia illucens</i>) fornece as larvas utilizadas no processamento. Em módulos protegidos, elas consomem parte da matéria orgânica e promovem a bioconversão do substrato.</p><p>Ao final, rampas de autocolheita auxiliam a separação das larvas. Parte delas é reservada para manter a continuidade da criação.</p></div></div>
+ <div class="solution-flow"><div><span>ENTRADA</span><b>Resíduos de batata + esterco bovino</b></div><i>→</i><div><span>ETAPA 1</span><b>Bioconversão larval protegida</b></div><i>→</i><div><span>SEPARAÇÃO</span><b>Autocolheita das larvas</b></div><i>→</i><div><span>ETAPA 2</span><b>Leiras de compostagem existentes</b></div></div>
+ <div class="solution-bottom"><div class="mini-icon">↗</div><p><b>O diferencial da proposta:</b> integrar a criação da mosca-soldado-negra à compostagem já existente na propriedade, aproveitando a infraestrutura disponível e acrescentando uma etapa de pré-tratamento biológico.</p></div>
 </section>
-
-<section id="processo" class="olive">
-  <div class="wrap">
-    <p class="eyebrow lime">03 · Como funciona</p>
-    <h2 class="rv">Seis etapas, duas fases distintas.</h2>
-    <p class="lead">Fase A: bioconversão larval (etapas 1 a 4). Fase B: compostagem convencional existente (etapa 5), seguida de avaliação laboratorial (etapa 6).</p>
-    <div class="tl" role="tablist" aria-label="Etapas do processo"></div>
-    <div class="tl-panel" aria-live="polite"><em class="big"></em><b></b><p></p><div class="meter"><i></i></div></div>
-  </div>
+<section class="section process" id="processo">
+ <div class="section-head centered"><p class="kicker">04 / COMO FUNCIONA</p><h2>O processo, <em>etapa por etapa.</em></h2><p class="intro">Conheça o caminho dos resíduos, desde a preparação dos módulos até a avaliação laboratorial do composto.</p></div>
+ <div class="phase-label"><span>FASE A</span><b>Bioconversão larval</b><small>Criação, processamento e separação</small></div>
+ <div class="steps">
+  <article class="step"><img src="assets/etapa-1.jpg" alt="Estrutura protegida"><div class="step-body"><span>01</span><h3>Estruturas protegidas</h3><p>Viveiros telados e compartimentos de processamento organizam a criação e o tratamento dos resíduos, com contenção e separação das áreas.</p></div></article>
+  <article class="step"><img src="assets/etapa-2.jpg" alt="Módulo de criação da mosca-soldado-negra"><div class="step-body"><span>02</span><h3>Criação da mosca-soldado-negra</h3><p>O sistema mantém uma criação própria de <i>Hermetia illucens</i>, para fornecer os organismos usados na etapa de bioconversão.</p></div></article>
+  <article class="step"><img src="assets/etapa-3.jpg" alt="Ciclo de vida da mosca-soldado-negra"><div class="step-body"><span>03</span><h3>Reprodução e ciclo biológico</h3><p>O acompanhamento do ciclo permite obter novas larvas e reservar parte da criação para dar continuidade ao sistema.</p></div></article>
+  <article class="step"><img src="assets/etapa-4.jpg" alt="Larvas adicionadas ao substrato orgânico"><div class="step-body"><span>04</span><h3>Pré-tratamento dos resíduos</h3><p>As larvas são introduzidas no material preparado e consomem parte da matéria orgânica, realizando a bioconversão larval.</p></div></article>
+ </div>
+ <div class="phase-label phase-b"><span>FASE B</span><b>Compostagem e avaliação</b><small>Continuidade do tratamento e verificação dos resultados</small></div>
+ <div class="steps steps-three">
+  <article class="step"><img src="assets/etapa-6.jpg" alt="Separação de larvas por rampa"><div class="step-body"><span>05</span><h3>Autocolheita e separação</h3><p>Rampas permitem que as larvas maduras se desloquem para a área de coleta. Parte é reservada para a continuidade da criação.</p></div></article>
+  <article class="step"><img src="assets/etapa-7.jpg" alt="Amostras de composto em avaliação"><div class="step-body"><span>06</span><h3>Compostagem convencional</h3><p>O material residual segue para as leiras de compostagem existentes na Fazenda Água Santa, dando continuidade ao tratamento.</p></div></article>
+  <article class="step"><img src="assets/etapa-8.jpg" alt="Área agrícola ao final do processo"><div class="step-body"><span>07</span><h3>Análises e avaliação final</h3><p>Laboratórios externos avaliarão redução de massa e alterações físico-químicas e microbiológicas. A qualidade será verificada, não presumida.</p></div></article>
+ </div>
 </section>
-
-<section id="beneficios" class="cream">
-  <div class="wrap">
-    <p class="eyebrow earth">04 · Benefícios esperados</p>
-    <h2 class="rv">O que a proposta busca alcançar.</h2>
-    <p class="note rv">Benefícios esperados, a serem verificados na validação. Não são resultados comprovados.</p>
-    <div class="bens">
-      <article class="rv tilt c1"><i>🛡</i><p>Redução dos riscos de disseminação de doenças agrícolas e maior segurança sanitária do adubo orgânico utilizado nas lavouras.</p></article>
-      <article class="rv tilt c2"><i>📉</i><p>Redução de perdas produtivas e prejuízos econômicos relacionados à ocorrência de doenças agrícolas.</p></article>
-      <article class="rv tilt c3"><i>🔬</i><p>Maior confiabilidade na qualidade biológica do composto produzido a partir dos resíduos agropecuários.</p></article>
-      <article class="rv tilt c4"><i>♻</i><p>Melhor aproveitamento dos resíduos orgânicos gerados na propriedade, favorecendo seu reaproveitamento na produção agrícola.</p></article>
-    </div>
-  </div>
+<section class="section validation" id="validacao">
+ <div class="validation-copy"><p class="kicker">05 / COMO VAMOS AVALIAR</p><h2>Resultados precisam ser <em>medidos.</em></h2><p>A proposta prevê análises laboratoriais externas para acompanhar o comportamento do material durante o processo e verificar o que mudou após o tratamento.</p></div>
+ <div class="tests"><article><span>01</span><div><h3>Redução de massa</h3><p>Acompanhar a variação da quantidade de material ao longo das etapas.</p></div></article><article><span>02</span><div><h3>Alterações físico-químicas</h3><p>Caracterizar mudanças nas propriedades do material em tratamento.</p></div></article><article><span>03</span><div><h3>Alterações microbiológicas</h3><p>Investigar a qualidade biológica e a presença de microrganismos de interesse.</p></div></article></div>
+ <p class="validation-warning">A bioconversão larval não será apresentada como etapa comprovada de eliminação de patógenos. A segurança sanitária dependerá de tratamento adequado e resultados laboratoriais.</p>
 </section>
-
-<section id="validacao" class="graphite">
-  <div class="wrap">
-    <p class="eyebrow lime">05 · Validação e pesquisa</p>
-    <h2 class="rv">Análises laboratoriais externas previstas.</h2>
-    <p class="lead rv">A proposta prevê que laboratórios externos avaliem o material para verificar:</p>
-    <ul class="val">
-      <li class="rv">Redução de massa</li><li class="rv">Alterações físico-químicas</li><li class="rv">Alterações microbiológicas</li>
-    </ul>
-  </div>
-</section>
-
-<section id="grandprix" class="gp">
-  <div class="wrap">
-    <p class="eyebrow dark">Grand Prix SAGA SENAI · Minas Gerais</p>
-    <h2 class="rv">LDRJ COMPOST — Competindo pelo SENAI Araxá</h2>
-    <p class="lead rv">Estamos na primeira etapa do Grand Prix SAGA SENAI de Minas Gerais. Participar é uma conquista e uma oportunidade de desenvolver a nossa inovação.</p>
-    <div class="badge rv" aria-hidden="true">ETAPA<strong>01</strong></div>
-  </div>
-</section>
+<section class="section benefits" id="beneficios"><div class="section-head"><p class="kicker">06 / IMPACTO ESPERADO</p><h2>O que queremos <em>alcançar.</em></h2><p class="intro">A proposta busca contribuir para uma gestão mais eficiente dos resíduos agropecuários e para maior confiança na qualidade do composto.</p></div><div class="benefit-grid"><article><b>01</b><h3>Mais aproveitamento</h3><p>Integrar a bioconversão ao tratamento dos resíduos orgânicos da propriedade.</p></article><article><b>02</b><h3>Processo integrado</h3><p>Acrescentar uma etapa de pré-tratamento sem substituir as leiras existentes.</p></article><article><b>03</b><h3>Mais informação</h3><p>Usar análises para compreender as alterações e avaliar a qualidade do material.</p></article><article><b>04</b><h3>Decisões mais seguras</h3><p>Gerar evidências para orientar o aproveitamento agrícola do composto.</p></article></div><p class="disclaimer">Benefícios esperados — dependem da implantação, do acompanhamento e da validação experimental.</p></section>
+<section class="closing"><img src="assets/logo-ldrj-compost.jpg" alt="LDRJ COMPOST"><p>Transformando desafios ambientais em novas possibilidades para a agricultura.</p><a href="#inicio">Voltar ao início ↑</a></section>
 </main>
-
-<footer>
-  <div class="wrap"><b>LDRJ COMPOST</b><span>Biotecnologia aplicada a resíduos agroindustriais · Proposta para a Fazenda Água Santa, Perdizes-MG</span></div>
-</footer>
-<script src="js/main.js"></script>
-</body>
-</html>
+<footer><span>© LDRJ COMPOST</span><span>Biotecnologia aplicada a resíduos agroindustriais · Fazenda Água Santa · Perdizes–MG</span></footer>
+<script src="script.js"></script>
+</body></html>

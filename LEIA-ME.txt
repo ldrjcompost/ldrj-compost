@@ -1,3 +1,18 @@
-Coloque aqui:
-- logo.png  -> logo original da LDRJ COMPOST (sem alterar proporção)
-- hero.jpg  -> fotografia de impacto do hero (opcional)
+LDRJ COMPOST — pacote do site
+
+Arquivos:
+- index.html: estrutura e conteúdo do site
+- style.css: layout, cores, responsividade e animações
+- script.js: menu móvel, barra de progresso, animações e alternância de paleta
+- assets/: logo original enviada e recortes da imagem de fluxo enviada
+
+PUBLICAÇÃO NO GITHUB PAGES:
+1. Faça backup dos arquivos atuais do repositório.
+2. Envie index.html, style.css, script.js e a pasta assets/ para a raiz do repositório.
+3. Confirme que o GitHub Pages publica a branch main a partir da raiz (/).
+4. Aguarde a publicação e atualize o site limpando o cache do navegador.
+
+Observações de conteúdo:
+- A bioconversão larval é descrita como pré-tratamento, não como eliminação comprovada de patógenos.
+- A análise microbiológica é apresentada como etapa de validação externa.
+- Os benefícios são descritos como esperados, não como resultados já comprovados.
