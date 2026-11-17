@@ -1,105 +1,711 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#07120b">
-<meta name="description" content="LDRJ COMPOST: sistema integrado de bioconversão com Hermetia illucens e compostagem para resíduos de batata e esterco bovino.">
-<title>LDRJ COMPOST | Biotecnologia aplicada à compostagem</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07130b">
+<meta name="description" content="LDRJ COMPOST — Sistema integrado de bioconversão por mosca-soldado-negra e compostagem convencional.">
+<title>LDRJ COMPOST | Biotecnologia e Agroindústria</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --bg:#07130b;
+ --surface:#101e14;
+ --surface2:#17291c;
+ --text:#f5f7ed;
+ --muted:#aab9a8;
+ --green:#b8e63f;
+ --gold:#dfb653;
+ --line:rgba(184,230,63,.19);
+ --light:#f0f3e9;
+ --ink:#18251a;
+ --radius:22px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+ margin:0;
+ background:var(--bg);
+ color:var(--text);
+ font-family:'DM Sans',sans-serif;
+ line-height:1.65;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+button{font:inherit}
+
+.progress{
+ position:fixed;top:0;left:0;height:3px;
+ background:var(--green);width:0;z-index:999;
+}
+
+header{
+ position:fixed;z-index:100;top:0;left:0;width:100%;
+ min-height:76px;padding:12px 5%;
+ display:flex;align-items:center;justify-content:space-between;
+ background:rgba(5,14,8,.88);
+ backdrop-filter:blur(18px);
+ border-bottom:1px solid var(--line);
+}
+
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{
+ width:45px;height:45px;border-radius:50%;
+ object-fit:cover;border:1px solid var(--green);
+}
+.brand span{
+ font:700 17px 'Space Grotesk';
+ letter-spacing:2px;
+}
+.brand b{color:var(--green)}
+
+nav{display:flex;align-items:center;gap:24px}
+nav a{font-size:12px;color:var(--muted);transition:.2s}
+nav a:hover{color:var(--green)}
+
+.controls{display:flex;gap:8px}
+.control{
+ border:1px solid var(--line);background:transparent;
+ color:var(--text);padding:9px 13px;border-radius:30px;
+ cursor:pointer;
+}
+.menu-button{display:none}
+
+.hero{
+ min-height:100vh;
+ min-height:100svh;
+ position:relative;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;
+ text-align:center;padding:125px 20px 90px;
+ background:
+ radial-gradient(ellipse at 50% 35%,#254321 0%,#102416 35%,#07130b 76%);
+}
+
+.hero:before,.hero:after{
+ content:"";position:absolute;border:1px solid rgba(184,230,63,.15);
+ width:650px;height:650px;border-radius:50%;
+ pointer-events:none;
+}
+.hero:after{width:850px;height:850px;border-style:dashed;opacity:.4}
+
+.hero-content{position:relative;z-index:2;max-width:900px}
+.eyebrow{
+ color:var(--green);font-size:11px;font-weight:800;
+ letter-spacing:4px;
+}
+.logo-main{
+ width:min(310px,65vw);aspect-ratio:1;
+ object-fit:cover;border-radius:50%;
+ margin:22px auto;
+ display:block;
+ border:1px solid rgba(184,230,63,.5);
+ box-shadow:0 0 70px rgba(184,230,63,.18);
+}
+.hero h1{
+ font:700 clamp(40px,7vw,79px)/1.05 'Space Grotesk';
+ letter-spacing:-3px;margin:15px 0;
+}
+.hero h1 em{color:var(--green);font-style:normal}
+.hero p{
+ max-width:690px;margin:20px auto;
+ color:var(--muted);font-size:18px;
+}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+ display:inline-block;padding:14px 23px;border-radius:40px;
+ font-size:13px;font-weight:800;transition:.25s;
+}
+.btn:hover{transform:translateY(-4px)}
+.primary{background:var(--green);color:#10190c}
+.secondary{border:1px solid var(--line)}
+.tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px}
+.tags span{
+ border:1px solid var(--line);padding:7px 13px;
+ border-radius:30px;color:var(--muted);
+ font-size:10px;letter-spacing:1px;text-transform:uppercase;
+}
+
+.section{padding:100px 7%}
+.section-heading{max-width:850px;margin-bottom:45px}
+.kicker{
+ color:#83a936;font-size:11px;font-weight:800;
+ letter-spacing:3px;
+}
+h2{
+ font:700 clamp(35px,5.5vw,62px)/1.1 'Space Grotesk';
+ letter-spacing:-2px;margin:12px 0 20px;
+}
+h2 em{font-style:normal;color:var(--green)}
+.intro{font-size:17px;color:var(--muted);max-width:780px}
+
+.light{
+ background:var(--light);color:var(--ink);
+}
+.light .intro{color:#59685a}
+.light h2 em{color:#709b2b}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+
+/* DEMANDA */
+
+.demand-art{
+ min-height:380px;border-radius:var(--radius);
+ padding:30px;display:flex;flex-direction:column;
+ justify-content:center;align-items:center;text-align:center;
+ background:
+ radial-gradient(circle at 50% 30%,#395b28,#12251a 65%,#07120b);
+ border:1px solid var(--line);
+}
+.demand-art .symbol{font-size:90px}
+.demand-art h3{font:700 24px 'Space Grotesk'}
+.demand-art p{color:#bdcbb6;max-width:400px}
+
+.problem{
+ padding:23px 0;border-bottom:1px solid #d6dfd0;
+ display:flex;gap:18px;
+}
+.problem-number{
+ color:#789b32;font:700 28px 'Space Grotesk';
+}
+.problem h3{font:700 18px 'Space Grotesk';margin:0 0 5px}
+.problem p{font-size:14px;color:#59675a;margin:0}
+.goal{
+ background:#dce8d0;border-radius:16px;padding:23px;margin-top:20px;
+}
+
+/* LAUDO */
+
+.report{
+ background:white;color:#172318;
+ padding:28px;border-radius:22px;
+ border:1px solid #dce5d5;
+}
+.report-top{
+ display:flex;justify-content:space-between;
+ gap:15px;align-items:center;flex-wrap:wrap;
+}
+.report-label{font-size:10px;letter-spacing:2px;color:#718d42;font-weight:800}
+.report h3{font:700 23px 'Space Grotesk'}
+.report small{color:#6b7869}
+.result{
+ border:1px solid #e0e7dc;border-radius:15px;
+ padding:20px;background:#f8faf5;
+}
+.status{
+ font-size:10px;font-weight:800;letter-spacing:1px;
+ color:#64872d;
+}
+.status.warning{color:#b17b23}
+.result h3{font:700 19px 'Space Grotesk'}
+.value{
+ font:700 27px 'Space Grotesk';color:#557e25;
+ display:block;margin:12px 0 3px;
+}
+.result p{font-size:13px;color:#687568;margin-bottom:0}
+.report-note{
+ background:#edf2e7;padding:17px;border-radius:12px;
+ color:#53604f;font-size:12px;margin-top:20px;
+}
+
+/* PATOGENOS */
+
+.pathogen{
+ background:#fff;border-radius:18px;overflow:hidden;
+ border:1px solid #e1e8dc;
+}
+.pathogen-visual{
+ min-height:150px;display:grid;place-items:center;
+ background:linear-gradient(140deg,#19351e,#47652c);
+ font-size:70px;
+}
+.pathogen-content{padding:23px}
+.pathogen-content h3{font:700 22px 'Space Grotesk'}
+.pathogen-content p{font-size:13px;color:#5f6b5c}
+.pathogen-content strong{color:#648d2c}
+
+/* PESQUISAS */
+
+.research-area{margin-top:70px}
+.research-area>p{color:var(--muted);max-width:750px}
+.research{
+ background:white;color:#1a291b;border-radius:17px;
+ padding:24px;border:1px solid #dfe8d9;
+ display:flex;flex-direction:column;
+ transition:.25s;
+}
+.research:hover{transform:translateY(-5px)}
+.research-meta{
+ display:flex;justify-content:space-between;gap:10px;
+ color:#668d32;font-size:10px;font-weight:800;
+}
+.research h3{
+ font:700 17px/1.3 'Space Grotesk';margin:17px 0 10px;
+}
+.research p{font-size:13px;color:#5c695b}
+.research a{
+ display:inline-block;margin-top:auto;padding-top:12px;
+ color:#527c24;font-weight:800;font-size:12px;
+ border-bottom:1px solid #9ebd71;align-self:flex-start;
+}
+
+/* SOLUCAO */
+
+.solution{
+ background:linear-gradient(145deg,#0b1c10,#142b19);
+}
+.solution-box{
+ border:1px solid var(--line);border-radius:22px;
+ padding:35px;background:rgba(255,255,255,.035);
+}
+.solution-box h3{font:700 28px 'Space Grotesk'}
+.solution-box p{color:var(--muted)}
+.solution-illustration{
+ min-height:290px;border-radius:18px;
+ display:grid;place-items:center;text-align:center;
+ padding:25px;
+ background:radial-gradient(circle at center,#34562b,#112418 65%,#08140c);
+ border:1px solid var(--line);
+}
+.solution-illustration .big{font-size:85px}
+.solution-illustration p{font-weight:700;color:var(--green)}
+
+/* FLUXO */
+
+.flow{
+ display:flex;align-items:stretch;gap:10px;
+ margin-top:38px;
+}
+.flow-item{
+ flex:1;text-align:center;padding:19px 10px;
+ background:rgba(255,255,255,.045);
+ border:1px solid var(--line);border-radius:13px;
+}
+.flow-item span{display:block;color:var(--green);font-size:10px;font-weight:800}
+.flow-item b{display:block;font-size:12px;margin-top:8px}
+.flow-arrow{align-self:center;color:var(--green);font-size:22px}
+
+/* ETAPAS */
+
+.phase{
+ display:flex;align-items:center;gap:15px;
+ margin:40px 0 20px;
+}
+.phase span{
+ background:#1c371e;color:#c6eb72;
+ padding:8px 14px;border-radius:30px;
+ font-size:10px;font-weight:800;
+}
+.phase h3{font:700 20px 'Space Grotesk';margin:0}
+.phase small{color:#758270}
+
+.step{
+ background:white;color:#17251a;
+ border-radius:17px;overflow:hidden;
+ box-shadow:0 8px 25px rgba(20,45,20,.07);
+ transition:.25s;
+}
+.step:hover{transform:translateY(-5px)}
+.step-art{
+ height:175px;display:grid;place-items:center;
+ background:linear-gradient(145deg,#18351d,#597c36);
+ font-size:68px;color:white;
+}
+.step-content{padding:21px}
+.step-content>span{color:#789c39;font-weight:800;font-size:11px}
+.step-content h3{font:700 18px 'Space Grotesk';margin:8px 0}
+.step-content p{font-size:13px;color:#657063;margin:0}
+
+/* VALIDAÇÃO */
+
+.validation{background:#111f15}
+.validation-card{
+ border:1px solid var(--line);border-radius:15px;
+ padding:20px;background:rgba(255,255,255,.035);
+}
+.validation-card span{color:var(--green);font:700 25px 'Space Grotesk'}
+.validation-card h3{font:700 18px 'Space Grotesk'}
+.validation-card p{font-size:13px;color:var(--muted)}
+
+/* BENEFICIOS */
+
+.benefit{
+ background:white;padding:24px;border-radius:15px;
+ border:1px solid #dfe8d9;
+}
+.benefit span{color:#719637;font:700 28px 'Space Grotesk'}
+.benefit h3{font:700 17px 'Space Grotesk'}
+.benefit p{font-size:13px;color:#62705f}
+
+/* FINAL */
+
+.final{
+ padding:90px 20px;text-align:center;
+ background:radial-gradient(circle at 50% 0,#284625,#07130b 75%);
+}
+.final img{
+ width:160px;height:160px;object-fit:cover;
+ border-radius:50%;border:1px solid var(--green);
+}
+.final h2{font-size:36px}
+.final p{color:var(--muted);max-width:600px;margin:auto}
+
+footer{
+ padding:25px 7%;display:flex;justify-content:space-between;
+ gap:15px;flex-wrap:wrap;background:#040905;
+ color:#899889;font-size:11px;
+}
+footer strong{color:var(--green)}
+
+/* CORES ALTERNATIVAS */
+
+body.blue{
+ --bg:#0b1120;
+ --surface:#17243a;
+ --surface2:#24344d;
+ --green:#69dfce;
+ --gold:#c4a4fa;
+ --line:rgba(105,223,206,.2);
+}
+body.blue .hero{
+ background:radial-gradient(ellipse at center,#273d55,#101a2c 55%,#080d18);
+}
+body.blue .solution{
+ background:linear-gradient(145deg,#10182a,#24334a);
+}
+body.gold{
+ --green:#e2bd68;
+ --line:rgba(226,189,104,.2);
+}
+body.gold .hero{
+ background:radial-gradient(ellipse at center,#44351b,#1d190f 55%,#090805);
+}
+
+/* ANIMAÇÕES */
+
+.reveal{
+ opacity:0;transform:translateY(22px);
+ transition:opacity .7s,transform .7s;
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:1000px){
+ nav{gap:12px}
+ nav a{font-size:10px}
+ .grid4{grid-template-columns:repeat(2,1fr)}
+ .grid3{grid-template-columns:repeat(2,1fr)}
+ .flow{flex-wrap:wrap}
+ .flow-item{min-width:40%}
+}
+@media(max-width:700px){
+ header{min-height:66px;padding:10px 17px}
+ .brand img{width:37px;height:37px}
+ .brand span{font-size:14px}
+ .menu-button{display:block}
+ nav{
+  display:none;position:absolute;top:66px;left:0;
+  width:100%;padding:22px;background:#08150c;
+  flex-direction:column;align-items:flex-start;
+ }
+ nav.open{display:flex}
+ nav a{font-size:14px}
+ .section{padding:75px 20px}
+ .grid2,.grid3,.grid4{grid-template-columns:1fr}
+ .hero h1{letter-spacing:-2px}
+ .hero p{font-size:15px}
+ .logo-main{width:225px}
+ .demand-art{min-height:280px}
+ .flow{flex-direction:column}
+ .flow-arrow{transform:rotate(90deg)}
+ .flow-item{width:100%}
+ .phase{flex-wrap:wrap}
+ .phase small{width:100%}
+ .report{padding:17px}
+ footer{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{
+  animation:none!important;transition:none!important;
+  scroll-behavior:auto!important;
+ }
+ .reveal{opacity:1;transform:none}
+}
+</style>
 </head>
+
 <body>
 <div class="progress" id="progress"></div>
-<header class="topbar">
- <a class="brand" href="#inicio"><img src="assets/logo-ldrj-compost.jpg" alt="Logo LDRJ COMPOST"><span>LDRJ <b>COMPOST</b></span></a>
- <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
- <nav id="menu"><a href="#demanda">A demanda</a><a href="#solucao">A solução</a><a href="#processo">Etapas</a><a href="#evidencias">Base científica</a><a href="#validacao">Validação</a><a href="#beneficios">Benefícios</a></nav>
- <button class="palette" id="palette" title="Alternar paleta de cores" aria-label="Alternar paleta de cores">◐ <span>Visual</span></button>
+
+<header>
+ <a href="#inicio" class="brand">
+  <img src="logo-ldrj-compost.jpg" alt="Logo LDRJ COMPOST"
+       onerror="this.style.display='none'">
+  <span>LDRJ <b>COMPOST</b></span>
+ </a>
+
+ <button class="control menu-button" id="menuButton" aria-label="Abrir menu">☰</button>
+
+ <nav id="menu">
+  <a href="#demanda">Demanda</a>
+  <a href="#laudo">Laudo</a>
+  <a href="#pesquisas">Pesquisas</a>
+  <a href="#solucao">Solução</a>
+  <a href="#processo">Processo</a>
+  <a href="#validacao">Avaliação</a>
+ </nav>
+
+ <div class="controls">
+  <button class="control" id="palette" title="Mudar cores">◐</button>
+ </div>
 </header>
+
 <main>
+
+<!-- ABERTURA -->
+
 <section class="hero" id="inicio">
- <div class="hero-glow"></div><div class="hero-grid"></div>
  <div class="hero-content">
-  <p class="eyebrow"><i></i> BIOTECNOLOGIA · AGROINDÚSTRIA · INOVAÇÃO</p>
-  <img class="hero-logo" src="assets/logo-ldrj-compost.jpg" alt="Identidade visual LDRJ COMPOST">
+  <div class="eyebrow">BIOTECNOLOGIA · AGROINDÚSTRIA · INOVAÇÃO</div>
+
+  <img class="logo-main" src="logo-ldrj-compost.jpg"
+       alt="Identidade visual da LDRJ COMPOST"
+       onerror="this.style.opacity='.15'">
+
   <h1>Resíduos que ganham <em>um novo ciclo.</em></h1>
-  <p class="hero-copy">Bioconversão larval integrada à compostagem para aprimorar o tratamento de resíduos de batata e esterco bovino.</p>
-  <div class="hero-actions"><a class="btn primary" href="#solucao">Conheça nossa solução <span>↘</span></a><a class="btn ghost" href="#demanda">Entenda o desafio</a></div>
-  <div class="hero-tags"><span>Hermetia illucens</span><span>Bioconversão</span><span>Compostagem</span></div>
+
+  <p>
+   Um sistema integrado de bioconversão por mosca-soldado-negra
+   e compostagem convencional para resíduos agroindustriais.
+  </p>
+
+  <div class="actions">
+   <a class="btn primary" href="#solucao">Conheça nossa solução ↗</a>
+   <a class="btn secondary" href="#demanda">Entenda a demanda</a>
+  </div>
+
+  <div class="tags">
+   <span>Hermetia illucens</span>
+   <span>Bioconversão</span>
+   <span>Compostagem</span>
+   <span>Fazenda Água Santa</span>
+  </div>
  </div>
- <div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div>
- <a class="scroll-cue" href="#demanda">ROLE PARA EXPLORAR <b>↓</b></a>
-</section>
-<section class="section demand" id="demanda">
- <div class="section-head"><p class="kicker">01 / O DESAFIO</p><h2>Uma questão importante para a <em>segurança do campo.</em></h2><p class="intro">A Fazenda Água Santa, em Perdizes–MG, aproveita resíduos da produção de batata e da criação de bovinos em confinamento por meio da compostagem. O desafio é avaliar e aprimorar a qualidade biológica do composto.</p></div>
- <div class="demand-grid">
-  <article class="demand-visual"><img src="assets/etapa-1.jpg" alt="Estrutura agrícola protegida para o processamento de resíduos"><div class="img-caption">RESÍDUOS AGROPECUÁRIOS · FAZENDA ÁGUA SANTA</div></article>
-  <div class="demand-info"><div class="issue"><span>01</span><div><h3>Possível permanência de agentes biológicos</h3><p>Microrganismos de interesse sanitário podem persistir se o tratamento não for adequado. Essa possibilidade precisa ser investigada por análises.</p></div></div>
-  <div class="issue"><span>02</span><div><h3>Risco para o solo e as lavouras</h3><p>Um composto com qualidade biológica inadequada pode representar uma via de disseminação de agentes causadores de doenças agrícolas.</p></div></div>
-  <div class="issue"><span>03</span><div><h3>Impactos produtivos e econômicos</h3><p>Problemas sanitários nas áreas de cultivo podem comprometer a produção, gerar perdas e elevar custos.</p></div></div>
-  <div class="goal"><b>O que a demanda exige?</b><p>Melhorar o tratamento dos resíduos e aumentar a confiabilidade da qualidade do composto, sem perder de vista o aproveitamento da matéria orgânica.</p></div></div>
- </div>
- <p class="technical-note">Importante: a presença de patógenos no material não é presumida como fato. A avaliação microbiológica é parte da validação proposta.</p>
 </section>
 
-<section class="section evidence" id="evidencias">
- <div class="section-head"><p class="kicker">02 / BASE CIENTÍFICA</p><h2>O que o laudo mostra — e o que a <em>ciência já investigou.</em></h2><p class="intro">Esta seção conecta o diagnóstico recebido pela equipe a estudos publicados sobre os microrganismos identificados, a compostagem e a bioconversão com mosca-soldado-negra. Cada pesquisa é apresentada dentro dos limites do seu próprio experimento.</p></div>
- <div class="lab-report">
-  <div class="lab-heading"><div><span class="lab-tag">DOCUMENTO DE REFERÊNCIA</span><h3>Laudo de quantificação molecular de microrganismos em composto</h3><p>Laudo nº 13545/2026 · Amostra identificada como “Composto teste”</p></div><span class="lab-icon">⌕</span></div>
-  <div class="result-grid">
-   <article class="result-card detected"><span class="result-status">PRESENÇA DETECTADA</span><h3><i>Fusarium</i> sp.</h3><strong>9,34 × 10³</strong><small>UFC/g — valor apresentado no laudo</small><p>O documento registra detecção e apresenta uma estimativa quantitativa para a amostra analisada.</p></article>
-   <article class="result-card detected"><span class="result-status">PRESENÇA DETECTADA</span><h3><i>Spongospora subterranea</i></h3><strong class="result-word">Detectado</strong><small>Contagem não realizada</small><p>O laudo informa que o microrganismo foi detectado, mas não foi possível realizar sua contagem.</p></article>
-   <article class="result-card not-detected"><span class="result-status">NÃO DETECTADO</span><h3><i>Verticillium</i> sp.</h3><strong class="result-word">Não detectado</strong><small>Na amostra analisada</small><p>O resultado não comprova ausência absoluta: a quantidade pode estar abaixo do limite de detecção do método.</p></article>
+<!-- DEMANDA -->
+
+<section class="section light" id="demanda">
+ <div class="section-heading reveal">
+  <div class="kicker">01 / NOSSA DEMANDA</div>
+  <h2>Um desafio que começa nos <em>resíduos agropecuários.</em></h2>
+  <p class="intro">
+   A Fazenda Água Santa, localizada em Perdizes–MG, desenvolve
+   atividades de cultivo de batata e criação de bovinos em confinamento.
+   Essas atividades geram resíduos orgânicos que são aproveitados
+   na produção de composto.
+  </p>
+ </div>
+
+ <div class="grid2">
+  <div class="demand-art reveal">
+   <div class="symbol">🥔 🌱 🐄</div>
+   <h3>Resíduos de batata e esterco bovino</h3>
+   <p>
+    Duas fontes de matéria orgânica que precisam ser tratadas
+    e aproveitadas de maneira adequada.
+   </p>
   </div>
-  <p class="lab-caveat"><b>Como interpretar:</b> o próprio laudo restringe o resultado à amostra entregue. Detecção molecular não demonstra, isoladamente, que o microrganismo esteja viável ou infectante. O documento também apresenta resultados em UFC/g associados a método RT-qPCR; a forma de conversão/interpretação dessa unidade deve ser confirmada com o laboratório responsável antes de comparações quantitativas.</p>
+
+  <div class="reveal">
+   <div class="problem">
+    <div class="problem-number">01</div>
+    <div>
+     <h3>Contaminantes biológicos</h3>
+     <p>
+      A possível permanência de microrganismos causadores de doenças
+      durante o tratamento dos resíduos exige atenção.
+     </p>
+    </div>
+   </div>
+
+   <div class="problem">
+    <div class="problem-number">02</div>
+    <div>
+     <h3>Segurança do solo e das culturas</h3>
+     <p>
+      A qualidade microbiológica do composto é importante para
+      reduzir riscos de disseminação de doenças agrícolas.
+     </p>
+    </div>
+   </div>
+
+   <div class="problem">
+    <div class="problem-number">03</div>
+    <div>
+     <h3>Perdas produtivas e econômicas</h3>
+     <p>
+      Problemas fitossanitários podem afetar a produção,
+      aumentar custos e comprometer o aproveitamento agrícola.
+     </p>
+    </div>
+   </div>
+
+   <div class="goal">
+    <strong>O que a demanda procura?</strong>
+    <p>
+     Melhorar o tratamento dos resíduos, aumentar a confiabilidade
+     biológica do composto e aproveitar melhor os materiais
+     gerados na propriedade.
+    </p>
+   </div>
+  </div>
  </div>
- <div class="pathogen-grid">
-  <article class="pathogen-card"><img src="assets/etapa-8.jpg" alt="Análise laboratorial de amostras de composto"><div class="pathogen-copy"><span class="card-kicker">ALVO 01 · DETECTADO</span><h3><i>Fusarium</i> sp.</h3><p>O gênero inclui fungos que causam doenças em diferentes culturas. O laudo não identifica a espécie ou forma especial; por isso, estudos com <i>F. oxysporum</i> específicos são referências relacionadas, mas não identificam necessariamente o organismo desta amostra.</p><p class="investigate"><b>Questão de pesquisa:</b> acompanhar a presença e, quando possível, a viabilidade do organismo ao longo das etapas de tratamento.</p></div></article>
-  <article class="pathogen-card"><img src="assets/etapa-4.jpg" alt="Larvas e resíduos orgânicos em processamento"><div class="pathogen-copy"><span class="card-kicker">ALVO 02 · DETECTADO</span><h3><i>Spongospora subterranea</i></h3><p>É o agente associado à sarna-pulverulenta da batata. A revisão de 2024 descreve o patógeno, sua biologia e diferentes estratégias de manejo, incluindo medidas para reduzir o inóculo no solo.</p><p class="investigate"><b>Questão de pesquisa:</b> investigar a persistência de estruturas de resistência e métodos adequados para avaliar sua viabilidade.</p></div></article>
-  <article class="pathogen-card"><img src="assets/etapa-7.jpg" alt="Amostra de composto para avaliação"><div class="pathogen-copy"><span class="card-kicker">ALVO 03 · NÃO DETECTADO</span><h3><i>Verticillium</i> sp.</h3><p>O gênero inclui fungos causadores de murchas vasculares. Como o laudo não detectou <i>Verticillium</i> sp. e não especifica espécie, pesquisas com <i>V. dahliae</i> são referências de contexto, não evidência de presença na amostra.</p><p class="investigate"><b>Questão de pesquisa:</b> manter o acompanhamento e distinguir detecção molecular, viabilidade e capacidade de causar doença.</p></div></article>
- </div>
- <div class="research-heading"><p class="kicker">ARTIGOS E ESTUDOS</p><h3>Pesquisas que ajudam a formular as perguntas certas.</h3><p>Os estudos abaixo sustentam linhas de investigação. Eles não validam diretamente o sistema LDRJ COMPOST nem garantem o mesmo resultado para a mistura de resíduos da Fazenda Água Santa.</p></div>
- <div class="research-grid">
-  <article class="research-card"><div class="research-meta"><span>2024</span><span>Bioconversão · microbiologia</span></div><h3>Inhibition of pathogenic microorganisms in solid organic waste via black soldier fly larvae-mediated management</h3><p><b>Shi et al. · Science of the Total Environment</b></p><p>Comparou resíduos de cozinha e esterco suíno em compostagem natural e em sistemas com larvas. A maior redução relativa de microrganismos potencialmente patogênicos ocorreu em condições específicas, incluindo ajuste inicial de pH para 7. O trabalho sustenta investigar a influência das larvas sobre comunidades microbianas, mas não testou a mistura exata de batata e esterco bovino da LDRJ.</p><a href="https://pubmed.ncbi.nlm.nih.gov/38176562/" target="_blank" rel="noopener noreferrer">Ler no PubMed ↗</a></article>
-  <article class="research-card"><div class="research-meta"><span>2024</span><span>Frass · Fusarium</span></div><h3>Suppressive Effect of Black Soldier Fly Larvae Frass on Fusarium Wilt Disease in Tomato Plants</h3><p><b>Arabzadeh et al. · Insects</b></p><p>Avaliou frass de larvas criadas em dietas diferentes em tomate inoculado com <i>Fusarium oxysporum</i> f. sp. <i>lycopersici</i>. O efeito supressivo variou conforme a dieta; um dos frass reduziu colonização radicular e severidade da doença. É evidência sobre frass e doença em tomate, não prova de sanitização dos resíduos nem de controle do <i>Fusarium</i> genérico do laudo.</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11354714/" target="_blank" rel="noopener noreferrer">Ler artigo completo ↗</a></article>
-  <article class="research-card"><div class="research-meta"><span>2004</span><span>Compostagem · fitopatógenos</span></div><h3>Eradication of plant pathogens and nematodes during composting: a review</h3><p><b>Noble & Roberts · Plant Pathology</b></p><p>Revisou combinações de temperatura e tempo para diversos patógenos. A revisão mostra que o resultado depende do organismo, do processo e da distribuição térmica; temperaturas máximas não garantem, sozinhas, higienização uniforme de toda a massa.</p><a href="https://doi.org/10.1111/j.0032-0862.2004.01059.x" target="_blank" rel="noopener noreferrer">Consultar revisão e DOI ↗</a></article>
-  <article class="research-card"><div class="research-meta"><span>2003</span><span>Fusarium · temperatura</span></div><h3>Temperature effect on Fusarium oxysporum f. sp. melonis survival during horticultural waste composting</h3><p><b>Suárez-Estrella et al. · Journal of Applied Microbiology</b></p><p>Estudou um isolado específico de <i>F. oxysporum</i> em resíduos hortícolas. Os resultados relacionaram a persistência do fungo com temperatura e duração do tratamento. A espécie/formae specialis e o resíduo estudado diferem do que o laudo da LDRJ identifica.</p><a href="https://pubmed.ncbi.nlm.nih.gov/12588556/" target="_blank" rel="noopener noreferrer">Ler no PubMed ↗</a></article>
-  <article class="research-card"><div class="research-meta"><span>2024</span><span>Batata · Spongospora</span></div><h3>Advancements in Spongospora subterranea: Current Knowledge, Management Strategies, and Research Gaps</h3><p><b>Strydom et al. · Potato Research</b></p><p>Revisão sobre a sarna-pulverulenta, o agente causal, avanços de pesquisa e estratégias de manejo. É uma referência para entender o patógeno específico detectado no laudo e as lacunas de conhecimento; não demonstra efeito da bioconversão larval sobre ele.</p><a href="https://link.springer.com/article/10.1007/s11540-024-09701-8" target="_blank" rel="noopener noreferrer">Ler revisão ↗</a></article>
-  <article class="research-card"><div class="research-meta"><span>2025</span><span>Chá de compostagem · Verticillium</span></div><h3>Compost Teas Reduce Verticillium dahliae Growth In Vitro via Direct and Volatile Effects</h3><p><b>Younes, Lockhart & Carpenter-Boggs · Sustainable Agricultural and Environmental Sciences</b></p><p>Testou preparações de chá de compostagem contra o crescimento micelial de <i>V. dahliae</i> em laboratório (in vitro), com inibição em diferentes condições. Os autores apontam a necessidade de validação adicional. O resultado não comprova eficácia em campo nem sobre <i>Verticillium</i> sp. desta amostra.</p><a href="https://onlinelibrary.wiley.com/doi/10.1002/sae2.70067" target="_blank" rel="noopener noreferrer">Ler artigo ↗</a></article>
- </div>
- <div class="evidence-limits"><span class="limits-icon">!</span><div><h3>O que ainda não está demonstrado</h3><ul><li>Os estudos não testaram exatamente a combinação de resíduos de batata e esterco bovino da Fazenda Água Santa.</li><li>Não foi localizada, entre estas referências, demonstração direta de que larvas eliminem <i>Spongospora subterranea</i>.</li><li>Redução de abundância, inibição em laboratório e eliminação de um patógeno viável são resultados diferentes.</li><li>Os resultados dependem de dieta das larvas, condições do processo, organismo-alvo e método de análise.</li></ul></div></div>
 </section>
-<section class="section solution" id="solucao">
- <div class="solution-top"><div><p class="kicker">03 / NOSSA RESPOSTA</p><h2>Bioconversão larval <em>integrada à compostagem.</em></h2></div><p class="solution-lead">Dois processos conectados: primeiro, as larvas realizam o pré-tratamento biológico de parte dos resíduos; depois, o material residual segue para as leiras de compostagem que a fazenda já utiliza.</p></div>
- <div class="solution-feature"><div class="feature-image"><img src="assets/etapa-5.jpg" alt="Larvas de mosca-soldado-negra em material orgânico"><span class="floating-label">PRÉ-TRATAMENTO BIOLÓGICO</span></div><div class="feature-copy"><span class="number">01 — BIOCONVERSÃO</span><h3>Uma etapa biológica antes da compostagem</h3><p>A criação própria da mosca-soldado-negra (<i>Hermetia illucens</i>) fornece as larvas utilizadas no processamento. Em módulos protegidos, elas consomem parte da matéria orgânica e promovem a bioconversão do substrato.</p><p>Ao final, rampas de autocolheita auxiliam a separação das larvas. Parte delas é reservada para manter a continuidade da criação.</p></div></div>
- <div class="solution-flow"><div><span>ENTRADA</span><b>Resíduos de batata + esterco bovino</b></div><i>→</i><div><span>ETAPA 1</span><b>Bioconversão larval protegida</b></div><i>→</i><div><span>SEPARAÇÃO</span><b>Autocolheita das larvas</b></div><i>→</i><div><span>ETAPA 2</span><b>Leiras de compostagem existentes</b></div></div>
- <div class="solution-bottom"><div class="mini-icon">↗</div><p><b>O diferencial da proposta:</b> integrar a criação da mosca-soldado-negra à compostagem já existente na propriedade, aproveitando a infraestrutura disponível e acrescentando uma etapa de pré-tratamento biológico.</p></div>
-</section>
-<section class="section process" id="processo">
- <div class="section-head centered"><p class="kicker">04 / COMO FUNCIONA</p><h2>O processo, <em>etapa por etapa.</em></h2><p class="intro">Conheça o caminho dos resíduos, desde a preparação dos módulos até a avaliação laboratorial do composto.</p></div>
- <div class="phase-label"><span>FASE A</span><b>Bioconversão larval</b><small>Criação, processamento e separação</small></div>
- <div class="steps">
-  <article class="step"><img src="assets/etapa-1.jpg" alt="Estrutura protegida"><div class="step-body"><span>01</span><h3>Estruturas protegidas</h3><p>Viveiros telados e compartimentos de processamento organizam a criação e o tratamento dos resíduos, com contenção e separação das áreas.</p></div></article>
-  <article class="step"><img src="assets/etapa-2.jpg" alt="Módulo de criação da mosca-soldado-negra"><div class="step-body"><span>02</span><h3>Criação da mosca-soldado-negra</h3><p>O sistema mantém uma criação própria de <i>Hermetia illucens</i>, para fornecer os organismos usados na etapa de bioconversão.</p></div></article>
-  <article class="step"><img src="assets/etapa-3.jpg" alt="Ciclo de vida da mosca-soldado-negra"><div class="step-body"><span>03</span><h3>Reprodução e ciclo biológico</h3><p>O acompanhamento do ciclo permite obter novas larvas e reservar parte da criação para dar continuidade ao sistema.</p></div></article>
-  <article class="step"><img src="assets/etapa-4.jpg" alt="Larvas adicionadas ao substrato orgânico"><div class="step-body"><span>04</span><h3>Pré-tratamento dos resíduos</h3><p>As larvas são introduzidas no material preparado e consomem parte da matéria orgânica, realizando a bioconversão larval.</p></div></article>
+
+<!-- LAUDO -->
+
+<section class="section evidence" id="laudo">
+ <div class="section-heading reveal">
+  <div class="kicker">02 / DIAGNÓSTICO LABORATORIAL</div>
+  <h2>O que foi identificado <em>no laudo?</em></h2>
+  <p class="intro">
+   O laudo nº 13545/2026 apresenta resultados da análise molecular
+   de uma amostra identificada como composto teste.
+   Os resultados orientam os alvos de investigação da LDRJ COMPOST.
+  </p>
  </div>
- <div class="phase-label phase-b"><span>FASE B</span><b>Compostagem e avaliação</b><small>Continuidade do tratamento e verificação dos resultados</small></div>
- <div class="steps steps-three">
-  <article class="step"><img src="assets/etapa-6.jpg" alt="Separação de larvas por rampa"><div class="step-body"><span>05</span><h3>Autocolheita e separação</h3><p>Rampas permitem que as larvas maduras se desloquem para a área de coleta. Parte é reservada para a continuidade da criação.</p></div></article>
-  <article class="step"><img src="assets/etapa-7.jpg" alt="Amostras de composto em avaliação"><div class="step-body"><span>06</span><h3>Compostagem convencional</h3><p>O material residual segue para as leiras de compostagem existentes na Fazenda Água Santa, dando continuidade ao tratamento.</p></div></article>
-  <article class="step"><img src="assets/etapa-8.jpg" alt="Área agrícola ao final do processo"><div class="step-body"><span>07</span><h3>Análises e avaliação final</h3><p>Laboratórios externos avaliarão redução de massa e alterações físico-químicas e microbiológicas. A qualidade será verificada, não presumida.</p></div></article>
+
+ <div class="report reveal">
+  <div class="report-top">
+   <div>
+    <div class="report-label">LAUDO DE QUANTIFICAÇÃO MOLECULAR</div>
+    <h3>Microrganismos de interesse agrícola</h3>
+    <small>Documento nº 13545/2026 · Amostra: Composto teste</small>
+   </div>
+   <div style="font-size:35px">🔬</div>
+  </div>
+
+  <div class="grid3" style="margin-top:25px">
+   <article class="result">
+    <div class="status">● PRESENÇA DETECTADA</div>
+    <h3><i>Fusarium</i> sp.</h3>
+    <span class="value">9,34 × 10³</span>
+    <small>UFC/g — conforme apresentado no laudo</small>
+    <p>Detecção com valor quantitativo informado no documento.</p>
+   </article>
+
+   <article class="result">
+    <div class="status">● PRESENÇA DETECTADA</div>
+    <h3><i>Spongospora subterranea</i></h3>
+    <span class="value">Detectado</span>
+    <small>Contagem não realizada</small>
+    <p>O laboratório identificou o organismo na amostra.</p>
+   </article>
+
+   <article class="result">
+    <div class="status warning">● NÃO DETECTADO</div>
+    <h3><i>Verticillium</i> sp.</h3>
+    <span class="value">Não detectado</span>
+    <small>Na amostra analisada</small>
+    <p>Resultado referente à amostra e ao método empregado.</p>
+   </article>
+  </div>
+
+  <div class="report-note">
+   <strong>Leitura do diagnóstico:</strong>
+   o laudo corresponde à amostra analisada. A interpretação da
+   viabilidade dos microrganismos depende de métodos complementares
+   apropriados.
+  </div>
+ </div>
+
+ <div class="section-heading reveal" style="margin-top:65px">
+  <div class="kicker">MICRORGANISMOS IDENTIFICADOS</div>
+  <h2>Conheça os <em>alvos biológicos.</em></h2>
+ </div>
+
+ <div class="grid3">
+  <article class="pathogen reveal">
+   <div class="pathogen-visual">🧫</div>
+   <div class="pathogen-content">
+    <div class="kicker">ALVO 01 · DETECTADO</div>
+    <h3><i>Fusarium</i> sp.</h3>
+    <p>
+     Gênero de fungos que inclui espécies causadoras de doenças
+     em diferentes culturas agrícolas, como murchas vasculares
+     e problemas radiculares.
+    </p>
+    <strong>Importância:</strong>
+    <p>
+     Investigar sua presença e comportamento durante as etapas
+     de tratamento dos resíduos.
+    </p>
+   </div>
+  </article>
+
+  <article class="pathogen reveal">
+   <div class="pathogen-visual">🥔</div>
+   <div class="pathogen-content">
+    <div class="kicker">ALVO 02 · DETECTADO</div>
+    <h3><i>Spongospora subterranea</i></h3>
+    <p>
+     Agente associado à sarna-pulverulenta da batata.
+     Apresenta estruturas de resistência que podem permanecer
+     no ambiente por períodos prolongados.
+    </p>
+    <strong>Importância:</strong>
+    <p>
+     Investigar a persistência das estruturas de resistência
+     e os métodos de avaliação de viabilidade.
+    </p>
+   </div>
+  </article>
+
+  <article class="pathogen reveal">
+   <div class="pathogen-visual">🌱</div>
+   <div class="pathogen-content">
+    <div class="kicker">ALVO 03 · NÃO DETECTADO</div>
+    <h3><i>Verticillium</i> sp.</h3>
+    <p>
+     Gênero de fungos que inclui espécies causadoras de
+     murchas vasculares em diversas culturas agrícolas.
+    </p>
+    <strong>Importância:</strong>
+    <p>
+     Acompanhar sua ocorrência e compreender sua relação
+     com o ambiente e a matéria orgânica.
+    </p>
+   </div>
+  </article>
  </div>
 </section>
-<section class="section validation" id="validacao">
- <div class="validation-copy"><p class="kicker">05 / COMO VAMOS AVALIAR</p><h2>Resultados precisam ser <em>medidos.</em></h2><p>A proposta prevê análises laboratoriais externas para acompanhar o comportamento do material durante o processo e verificar o que mudou após o tratamento.</p></div>
- <div class="tests"><article><span>01</span><div><h3>Redução de massa</h3><p>Acompanhar a variação da quantidade de material ao longo das etapas.</p></div></article><article><span>02</span><div><h3>Alterações físico-químicas</h3><p>Caracterizar mudanças nas propriedades do material em tratamento.</p></div></article><article><span>03</span><div><h3>Alterações microbiológicas</h3><p>Investigar a qualidade biológica e a presença de microrganismos de interesse.</p></div></article></div>
- <p class="validation-warning">A bioconversão larval não será apresentada como etapa comprovada de eliminação de patógenos. A segurança sanitária dependerá de tratamento adequado e resultados laboratoriais.</p>
-</section>
-<section class="section benefits" id="beneficios"><div class="section-head"><p class="kicker">06 / IMPACTO ESPERADO</p><h2>O que queremos <em>alcançar.</em></h2><p class="intro">A proposta busca contribuir para uma gestão mais eficiente dos resíduos agropecuários e para maior confiança na qualidade do composto.</p></div><div class="benefit-grid"><article><b>01</b><h3>Mais aproveitamento</h3><p>Integrar a bioconversão ao tratamento dos resíduos orgânicos da propriedade.</p></article><article><b>02</b><h3>Processo integrado</h3><p>Acrescentar uma etapa de pré-tratamento sem substituir as leiras existentes.</p></article><article><b>03</b><h3>Mais informação</h3><p>Usar análises para compreender as alterações e avaliar a qualidade do material.</p></article><article><b>04</b><h3>Decisões mais seguras</h3><p>Gerar evidências para orientar o aproveitamento agrícola do composto.</p></article></div><p class="disclaimer">Benefícios esperados — dependem da implantação, do acompanhamento e da validação experimental.</p></section>
-<section class="closing"><img src="assets/logo-ldrj-compost.jpg" alt="LDRJ COMPOST"><p>Transformando desafios ambientais em novas possibilidades para a agricultura.</p><a href="#inicio">Voltar ao início ↑</a></section>
-</main>
-<footer><span>© LDRJ COMPOST</span><span>Biotecnologia aplicada a resíduos agroindustriais · Fazenda Água Santa · Perdizes–MG</span></footer>
-<script src="script.js"></script>
-</body></html>
+
+<!-- PESQUISAS -->
+
+<section class="section" id="pesquisas">
+ <div class="section-heading reveal">
+  <div class="kicker">03 / FUNDAMENTAÇÃO CIENTÍFICA</div>
+  <h2>O que a <em>ciência já investigou.</em></h2>
+  <p class="intro">
+   Pesquisas sobre mosca-soldado-negra, compostagem,
+   microrganismos fitopatogênicos e materiais orgânicos.
+   Cada estudo apresenta uma contribuição para compreender
+   os processos envolvidos na proposta.
+  </p>
+ </div>
+
+ <div class="grid2">
+
+  <article class="research reveal">
+   <div class="research-meta"><span>2024</span><span>BIOCONVERSÃO</span></div>
+   <h3>Inhibition of pathogenic microorganisms in solid organic waste via black soldier fly larvae-mediated management</h3>
+   <p><strong>Shi et al. · Science of the Total Environment</strong></p>
+   <p>
+    Comparou resíduos orgânicos em compostagem
