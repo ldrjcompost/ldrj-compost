@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07100a">
+<meta name="description" content="LDRJ COMPOST — controle de contaminantes biológicos na compostagem. Bioconversão de resíduos orgânicos com mosca-soldado-negra e compostagem.">
+<title>LDRJ COMPOST | Bioconversão e compostagem</title>
+<style>
+:root{--black:#050906;--deep:#08130c;--panel:#0d1c11;--panel2:#122417;--green:#137a31;--lime:#9be33b;--gold:#d4a843;--soil:#704728;--white:#f3f5ed;--muted:#b3c0b0;--line:rgba(213,235,202,.14);--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}.wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
+.topline{height:3px;background:linear-gradient(90deg,#805a1c,var(--gold),var(--lime),#176b2d)}
+header{position:sticky;top:0;z-index:30;background:rgba(5,9,6,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:25px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.1em}.brand img{width:54px;height:54px;object-fit:cover;border-radius:50%;border:1px solid rgba(155,227,59,.45)}.brand span{font-size:14px}.brand small{display:block;font-size:9px;letter-spacing:.2em;color:var(--muted);font-weight:600}.links{display:flex;gap:25px;font-size:12px;color:#d7dfd3}.links a:hover{color:var(--lime)}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 19px;border-radius:4px;background:linear-gradient(110deg,var(--lime),#c6ed75);color:#09120a;font-size:12px;font-weight:900;letter-spacing:.04em;border:1px solid var(--lime);transition:.2s}.nav-cta:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.outline{background:transparent;color:var(--white);border-color:rgba(212,168,67,.65)}.menu{display:none;background:none;border:1px solid var(--line);color:white;padding:8px 12px;border-radius:4px}
+.hero{position:relative;overflow:hidden;min-height:670px;display:flex;align-items:center;background:radial-gradient(ellipse at 80% 40%,rgba(27,112,39,.25),transparent 40%),linear-gradient(90deg,rgba(3,7,4,.97) 0%,rgba(3,7,4,.83) 48%,rgba(3,7,4,.22) 100%),url('assets/logo-ldrj-compost.jpg') right 8% center/auto 92% no-repeat}.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,var(--black),transparent 28%,transparent 75%,rgba(0,0,0,.35))}.hero-inner{position:relative;z-index:1;padding:100px 0 115px;max-width:720px}.eyebrow{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--lime);font-weight:900}.eyebrow:before{content:"";display:inline-block;width:28px;height:1px;background:var(--gold);vertical-align:middle;margin-right:10px}h1{font-size:clamp(43px,6.5vw,79px);line-height:1.02;letter-spacing:-.055em;margin:22px 0}h1 em{font-style:normal;color:var(--lime)}.lead{font-size:17px;color:#c0c9bd;max-width:600px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.hero-foot{display:flex;gap:25px;flex-wrap:wrap;margin-top:54px;color:#c5d0c0;font-size:11px}.hero-foot span:before{content:"✦";color:var(--gold);margin-right:8px}
+.band{border-block:1px solid var(--line);background:#0a130c}.band-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:21px 0}.band-item{font-size:11px;color:var(--muted);display:flex;gap:12px;align-items:center}.band-item b{display:block;color:var(--white);font-size:12px}.bullet{width:8px;height:8px;background:var(--lime);border-radius:50%;box-shadow:0 0 14px #9be35b;flex:none}
+section{padding:96px 0}.head{max-width:760px;margin-bottom:42px}.head h2,.split h2,.cta h2{font-size:clamp(32px,4.2vw,51px);line-height:1.08;letter-spacing:-.045em;margin:14px 0}.head p,.copy{color:var(--muted);font-size:15px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,#102116,#09130c);border:1px solid var(--line);padding:27px;border-radius:8px;min-height:220px;position:relative;overflow:hidden}.card:after{content:"";position:absolute;width:120px;height:120px;border:1px solid rgba(155,227,59,.12);border-radius:50%;right:-55px;bottom:-60px}.card .symbol{font-size:26px;color:var(--lime);margin-bottom:24px}.card h3{font-size:17px;margin:0 0 8px}.card p{font-size:13px;color:var(--muted);margin:0}
+.process-section{background:linear-gradient(180deg,#08110a,#0b190e 55%,#08110a);border-block:1px solid var(--line)}.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:65px;align-items:start}.split .head{margin:0}.process{display:grid;gap:12px}.step{display:grid;grid-template-columns:46px 1fr;gap:16px;padding:19px;background:rgba(255,255,255,.025);border:1px solid var(--line);border-left:2px solid var(--green);border-radius:5px}.step:nth-child(4),.step:nth-child(5){border-left-color:var(--gold)}.number{width:38px;height:38px;display:grid;place-items:center;color:var(--lime);border:1px solid rgba(155,227,59,.35);font-size:12px;font-weight:900}.step h3{margin:0 0 4px;font-size:15px}.step p{margin:0;color:var(--muted);font-size:12px}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}.feature-visual{min-height:390px;border:1px solid var(--line);border-radius:8px;background:radial-gradient(circle at 50% 45%,rgba(155,227,59,.18),transparent 38%),linear-gradient(145deg,#112316,#080d09);display:grid;place-items:center;position:relative;overflow:hidden}.cycle{width:245px;height:245px;border:2px solid rgba(155,227,59,.55);border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 55px rgba(155,227,59,.08),inset 0 0 45px rgba(155,227,59,.08)}.cycle:before,.cycle:after{content:"";position:absolute;inset:20px;border:1px dashed rgba(212,168,67,.5);border-radius:50%}.cycle:after{inset:47px;border-style:solid;border-color:rgba(155,227,59,.25)}.cycle-core{font-size:64px;color:var(--lime);text-shadow:0 0 25px rgba(155,227,59,.5)}.orbit-label{position:absolute;padding:8px 11px;background:#142719;border:1px solid var(--line);font-size:10px;color:#e8f0e4;border-radius:4px}.ol1{top:13%;left:8%}.ol2{right:7%;top:22%}.ol3{right:8%;bottom:15%}.ol4{left:7%;bottom:17%}.feature-copy{display:flex;flex-direction:column;justify-content:center;padding:30px;background:#0c180f;border:1px solid var(--line);border-radius:8px}.feature-copy h3{font-size:24px;line-height:1.2;margin:12px 0}.feature-copy p{color:var(--muted);font-size:14px}
+.note{border-left:3px solid var(--gold);padding:14px 17px;background:rgba(212,168,67,.07);color:#d9d5c7;font-size:12px;margin-top:18px}
+.lab{background:#080e09}.lab-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.lab-card{padding:22px 18px;background:#101d13;border:1px solid var(--line);border-radius:6px}.lab-card strong{font-size:13px;display:block;margin:12px 0 5px}.lab-card p{font-size:11px;color:var(--muted);margin:0}.lab-card .symbol{font-size:23px;color:var(--gold)}
+.team{background:#0d1a10;border-block:1px solid var(--line)}.team-row{display:flex;justify-content:space-between;align-items:center;gap:35px}.team-row p{max-width:620px;color:var(--muted);font-size:14px}
+.cta{text-align:center;background:radial-gradient(ellipse at 50% 100%,rgba(24,104,39,.2),transparent 60%);padding:105px 0}.cta h2{max-width:780px;margin:15px auto}.cta p{max-width:620px;margin:0 auto 26px;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);padding:25px 0;color:#91a08e;font-size:10px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot b{color:#dce7d8;letter-spacing:.12em}
+.reveal{opacity:0;transform:translateY(20px);transition:.65s ease}.reveal.show{opacity:1;transform:none}
+@media(max-width:850px){.links{display:none;position:absolute;top:82px;left:0;right:0;background:#08120b;padding:22px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}.links.open{display:flex}.menu{display:block}.nav-cta{display:none}.hero{background-position:center,right 0 center;background-size:auto,auto,auto 80%;}.split{grid-template-columns:1fr;gap:35px}.lab-grid{grid-template-columns:1fr 1fr}.feature{grid-template-columns:1fr}.team-row{align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.wrap{width:calc(100% - 32px)}.hero{min-height:650px;background-position:center,center,right -140px center;background-size:auto,auto,auto 72%;}.hero-inner{padding:75px 0 95px}.hero:after{background:linear-gradient(90deg,rgba(3,7,4,.55),rgba(3,7,4,.3)),linear-gradient(0deg,var(--black),transparent 35%)}.lead{font-size:15px}.band-row,.cards,.lab-grid{grid-template-columns:1fr}.band-row{gap:13px}section{padding:70px 0}.feature-visual{min-height:310px}.cycle{transform:scale(.8)}.orbit-label{font-size:9px}.hero-foot{margin-top:35px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header><div class="wrap nav">
+<a class="brand" href="#inicio"><img src="assets/logo-ldrj-compost.jpg" alt="Logo LDRJ COMPOST"><span>LDRJ COMPOST<small>CONTROLE DE CONTAMINANTES BIOLÓGICOS</small></span></a>
+<nav class="links" id="links"><a href="#projeto">Projeto</a><a href="#processo">Processo</a><a href="#diferencial">Diferencial</a><a href="#validacao">Validação</a><a href="#equipe">Equipe</a></nav>
+<a class="nav-cta" href="#projeto">Conheça a solução ↗</a><button class="menu" id="menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+</div></header>
+<main>
+<section class="hero" id="inicio"><div class="wrap"><div class="hero-inner reveal">
+<div class="eyebrow">Biotecnologia • Agroindústria • Sustentabilidade</div>
+<h1>Transformar resíduos.<br><em>Valorizar ciclos.</em></h1>
+<p class="lead">Uma proposta de bioconversão de resíduos orgânicos com mosca-soldado-negra, integrada a uma etapa posterior de compostagem e acompanhamento técnico.</p>
+<div class="actions"><a class="btn" href="#processo">Conheça o processo ↗</a><a class="btn outline" href="#diferencial">Nosso diferencial</a></div>
+<div class="hero-foot"><span>Resíduos de batata</span><span>Bioconversão</span><span>Compostagem</span></div>
+</div></div></section>
+<div class="band"><div class="wrap band-row">
+<div class="band-item"><i class="bullet"></i><div><b>Valorização de resíduos</b>Uso de resíduos orgânicos como substrato</div></div>
+<div class="band-item"><i class="bullet"></i><div><b>Processo biológico</b>Criação controlada de larvas</div></div>
+<div class="band-item"><i class="bullet"></i><div><b>Verificação técnica</b>Amostragem e análise em laboratório</div></div>
+</div></div>
+<section id="projeto"><div class="wrap">
+<div class="head reveal"><div class="eyebrow">01 / O projeto</div><h2>Uma abordagem integrada para resíduos orgânicos.</h2><p>O LDRJ COMPOST apresenta uma proposta que associa a bioconversão por larvas de mosca-soldado-negra ao tratamento posterior do material por compostagem. O foco é estruturar o processo, controlar suas etapas e avaliar tecnicamente o material obtido.</p></div>
+<div class="cards">
+<article class="card reveal"><div class="symbol">◈</div><h3>Desafio</h3><p>Dar destino adequado a resíduos orgânicos e considerar os riscos de contaminantes biológicos associados ao processo de compostagem.</p></article>
+<article class="card reveal"><div class="symbol">♧</div><h3>Abordagem</h3><p>Empregar a bioconversão como etapa anterior à compostagem, com criação separada e manejo controlado das larvas.</p></article>
+<article class="card reveal"><div class="symbol">⌁</div><h3>Propósito</h3><p>Organizar um fluxo de tratamento que possa ser acompanhado, amostrado e avaliado com critérios técnicos.</p></article>
+</div></div></section>
+<section class="process-section" id="processo"><div class="wrap split">
+<div class="head reveal"><div class="eyebrow">02 / Fluxo operacional</div><h2>Do manejo biológico à maturação do composto.</h2><p>O processo foi organizado em etapas sequenciais. A criação da mosca-soldado-negra acontece em ambiente protegido e separado da área de alimentação das larvas.</p>
+<div class="note">A bioconversão acontece antes da compostagem termofílica. As larvas não são criadas dentro de leiras aquecidas.</div></div>
+<div class="process">
+<div class="step reveal"><div class="number">01</div><div><h3>Criação protegida</h3><p>Ambiente dedicado à manutenção dos adultos e à organização do ciclo reprodutivo da mosca-soldado-negra.</p></div></div>
+<div class="step reveal"><div class="number">02</div><div><h3>Reprodução e obtenção de larvas</h3><p>Condução das etapas de reprodução, postura de ovos e desenvolvimento larval.</p></div></div>
+<div class="step reveal"><div class="number">03</div><div><h3>Alimentação e bioconversão</h3><p>Larvas direcionadas ao substrato composto por resíduos de batata e esterco bovino, conforme o manejo definido pela equipe.</p></div></div>
+<div class="step reveal"><div class="number">04</div><div><h3>Autocolheita e seleção</h3><p>Uso de rampas de autocolheita para separar as larvas que deixam o substrato; uma parcela é reservada à reprodução.</p></div></div>
+<div class="step reveal"><div class="number">05</div><div><h3>Compostagem e maturação</h3><p>O material remanescente segue para a etapa posterior de compostagem e maturação.</p></div></div>
+<div class="step reveal"><div class="number">06</div><div><h3>Amostragem e laboratório</h3><p>Coleta de amostras e avaliação laboratorial para caracterizar o material e verificar os parâmetros definidos no projeto.</p></div></div>
+</div></div></section>
+<section id="diferencial"><div class="wrap">
+<div class="head reveal"><div class="eyebrow">03 / Diferencial do projeto</div><h2>Bioconversão primeiro. Compostagem depois.</h2><p>A separação das etapas é um princípio central da proposta. O manejo da mosca-soldado-negra ocorre em ambiente próprio; a compostagem é conduzida posteriormente, com acompanhamento e avaliação do material.</p></div>
+<div class="feature">
+<div class="feature-visual reveal" aria-label="Ilustração conceitual de ciclo biológico"><span class="orbit-label ol1">Resíduo orgânico</span><span class="orbit-label ol2">Larvas</span><span class="orbit-label ol3">Autocolheita</span><span class="orbit-label ol4">Compostagem</span><div class="cycle"><div class="cycle-core">♻</div></div></div>
+<div class="feature-copy reveal"><div class="eyebrow">Organização do sistema</div><h3>Etapas distintas, conectadas por um fluxo de tratamento.</h3><p>A criação e a reprodução da mosca-soldado-negra são mantidas separadas da etapa de bioconversão. Após a alimentação e a autocolheita, o material segue para compostagem, maturação e amostragem.</p><p>Essa organização permite descrever o processo com clareza e identificar em quais pontos devem ocorrer o controle, o registro e a validação.</p></div>
+</div></div></section>
+<section class="lab" id="validacao"><div class="wrap">
+<div class="head reveal"><div class="eyebrow">04 / Controle e validação</div><h2>Resultados precisam ser medidos.</h2><p>O controle de contaminantes biológicos deve ser demonstrado por meio de critérios, amostras e análises adequadas. Esta seção será preenchida com os métodos e resultados efetivamente obtidos pela equipe.</p></div>
+<div class="lab-grid">
+<div class="lab-card reveal"><div class="symbol">⌕</div><strong>Plano de amostragem</strong><p>Definição dos pontos e momentos de coleta.</p></div>
+<div class="lab-card reveal"><div class="symbol">⚗</div><strong>Análise laboratorial</strong><p>Verificação dos parâmetros microbiológicos estabelecidos.</p></div>
+<div class="lab-card reveal"><div class="symbol">▤</div><strong>Registro de dados</strong><p>Organização dos resultados e das condições de cada etapa.</p></div>
+<div class="lab-card reveal"><div class="symbol">✓</div><strong>Validação</strong><p>Interpretação dos resultados frente aos critérios técnicos aplicáveis.</p></div>
+</div>
+<div class="note">Não são apresentados percentuais de redução, eficiência ou segurança microbiológica sem resultados laboratoriais documentados.</div>
+</div></section>
+<section id="equipe"><div class="wrap team-row reveal"><div><div class="eyebrow">05 / Equipe LDRJ</div><h2>Conhecimento aplicado em colaboração.</h2><p>O espaço de apresentação da equipe será personalizado com os nomes, funções e responsabilidades de cada integrante no desenvolvimento do LDRJ COMPOST.</p></div><a class="btn outline" href="mailto:contato@exemplo.com">Contato institucional ↗</a></div></section>
+<section class="cta"><div class="wrap reveal"><div class="eyebrow">LDRJ COMPOST</div><h2>Ciência, processo e responsabilidade ambiental.</h2><p>Uma iniciativa dedicada ao estudo e ao desenvolvimento de soluções para a valorização de resíduos orgânicos e o controle de contaminantes biológicos na compostagem.</p><a class="btn" href="#inicio">Voltar ao início ↑</a></div></section>
+</main>
+<footer><div class="wrap foot"><span><b>LDRJ COMPOST</b> · Controle de contaminantes biológicos na compostagem</span><span>Bioconversão • Compostagem • Validação técnica</span></div></footer>
+<script>
+const menu=document.getElementById('menu'),links=document.getElementById('links');
+menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body></html>
