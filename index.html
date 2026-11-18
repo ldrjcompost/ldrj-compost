@@ -1,711 +1,188 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07130b">
-<meta name="description" content="LDRJ COMPOST — Sistema integrado de bioconversão por mosca-soldado-negra e compostagem convencional.">
-<title>LDRJ COMPOST | Biotecnologia e Agroindústria</title>
-
+<meta name="description" content="LDRJ COMPOST — proposta de bioconversão de resíduos orgânicos por larvas de mosca-soldado-negra integrada à compostagem.">
+<title>LDRJ COMPOST | Bioconversão e Compostagem</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-:root{
- --bg:#07130b;
- --surface:#101e14;
- --surface2:#17291c;
- --text:#f5f7ed;
- --muted:#aab9a8;
- --green:#b8e63f;
- --gold:#dfb653;
- --line:rgba(184,230,63,.19);
- --light:#f0f3e9;
- --ink:#18251a;
- --radius:22px;
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{
- margin:0;
- background:var(--bg);
- color:var(--text);
- font-family:'DM Sans',sans-serif;
- line-height:1.65;
-}
-a{color:inherit;text-decoration:none}
-img{max-width:100%}
-button{font:inherit}
-
-.progress{
- position:fixed;top:0;left:0;height:3px;
- background:var(--green);width:0;z-index:999;
-}
-
-header{
- position:fixed;z-index:100;top:0;left:0;width:100%;
- min-height:76px;padding:12px 5%;
- display:flex;align-items:center;justify-content:space-between;
- background:rgba(5,14,8,.88);
- backdrop-filter:blur(18px);
- border-bottom:1px solid var(--line);
-}
-
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{
- width:45px;height:45px;border-radius:50%;
- object-fit:cover;border:1px solid var(--green);
-}
-.brand span{
- font:700 17px 'Space Grotesk';
- letter-spacing:2px;
-}
-.brand b{color:var(--green)}
-
-nav{display:flex;align-items:center;gap:24px}
-nav a{font-size:12px;color:var(--muted);transition:.2s}
-nav a:hover{color:var(--green)}
-
-.controls{display:flex;gap:8px}
-.control{
- border:1px solid var(--line);background:transparent;
- color:var(--text);padding:9px 13px;border-radius:30px;
- cursor:pointer;
-}
-.menu-button{display:none}
-
-.hero{
- min-height:100vh;
- min-height:100svh;
- position:relative;overflow:hidden;
- display:flex;align-items:center;justify-content:center;
- text-align:center;padding:125px 20px 90px;
- background:
- radial-gradient(ellipse at 50% 35%,#254321 0%,#102416 35%,#07130b 76%);
-}
-
-.hero:before,.hero:after{
- content:"";position:absolute;border:1px solid rgba(184,230,63,.15);
- width:650px;height:650px;border-radius:50%;
- pointer-events:none;
-}
-.hero:after{width:850px;height:850px;border-style:dashed;opacity:.4}
-
-.hero-content{position:relative;z-index:2;max-width:900px}
-.eyebrow{
- color:var(--green);font-size:11px;font-weight:800;
- letter-spacing:4px;
-}
-.logo-main{
- width:min(310px,65vw);aspect-ratio:1;
- object-fit:cover;border-radius:50%;
- margin:22px auto;
- display:block;
- border:1px solid rgba(184,230,63,.5);
- box-shadow:0 0 70px rgba(184,230,63,.18);
-}
-.hero h1{
- font:700 clamp(40px,7vw,79px)/1.05 'Space Grotesk';
- letter-spacing:-3px;margin:15px 0;
-}
-.hero h1 em{color:var(--green);font-style:normal}
-.hero p{
- max-width:690px;margin:20px auto;
- color:var(--muted);font-size:18px;
-}
-.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
-.btn{
- display:inline-block;padding:14px 23px;border-radius:40px;
- font-size:13px;font-weight:800;transition:.25s;
-}
-.btn:hover{transform:translateY(-4px)}
-.primary{background:var(--green);color:#10190c}
-.secondary{border:1px solid var(--line)}
-.tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px}
-.tags span{
- border:1px solid var(--line);padding:7px 13px;
- border-radius:30px;color:var(--muted);
- font-size:10px;letter-spacing:1px;text-transform:uppercase;
-}
-
-.section{padding:100px 7%}
-.section-heading{max-width:850px;margin-bottom:45px}
-.kicker{
- color:#83a936;font-size:11px;font-weight:800;
- letter-spacing:3px;
-}
-h2{
- font:700 clamp(35px,5.5vw,62px)/1.1 'Space Grotesk';
- letter-spacing:-2px;margin:12px 0 20px;
-}
-h2 em{font-style:normal;color:var(--green)}
-.intro{font-size:17px;color:var(--muted);max-width:780px}
-
-.light{
- background:var(--light);color:var(--ink);
-}
-.light .intro{color:#59685a}
-.light h2 em{color:#709b2b}
-
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:35px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-
-/* DEMANDA */
-
-.demand-art{
- min-height:380px;border-radius:var(--radius);
- padding:30px;display:flex;flex-direction:column;
- justify-content:center;align-items:center;text-align:center;
- background:
- radial-gradient(circle at 50% 30%,#395b28,#12251a 65%,#07120b);
- border:1px solid var(--line);
-}
-.demand-art .symbol{font-size:90px}
-.demand-art h3{font:700 24px 'Space Grotesk'}
-.demand-art p{color:#bdcbb6;max-width:400px}
-
-.problem{
- padding:23px 0;border-bottom:1px solid #d6dfd0;
- display:flex;gap:18px;
-}
-.problem-number{
- color:#789b32;font:700 28px 'Space Grotesk';
-}
-.problem h3{font:700 18px 'Space Grotesk';margin:0 0 5px}
-.problem p{font-size:14px;color:#59675a;margin:0}
-.goal{
- background:#dce8d0;border-radius:16px;padding:23px;margin-top:20px;
-}
-
-/* LAUDO */
-
-.report{
- background:white;color:#172318;
- padding:28px;border-radius:22px;
- border:1px solid #dce5d5;
-}
-.report-top{
- display:flex;justify-content:space-between;
- gap:15px;align-items:center;flex-wrap:wrap;
-}
-.report-label{font-size:10px;letter-spacing:2px;color:#718d42;font-weight:800}
-.report h3{font:700 23px 'Space Grotesk'}
-.report small{color:#6b7869}
-.result{
- border:1px solid #e0e7dc;border-radius:15px;
- padding:20px;background:#f8faf5;
-}
-.status{
- font-size:10px;font-weight:800;letter-spacing:1px;
- color:#64872d;
-}
-.status.warning{color:#b17b23}
-.result h3{font:700 19px 'Space Grotesk'}
-.value{
- font:700 27px 'Space Grotesk';color:#557e25;
- display:block;margin:12px 0 3px;
-}
-.result p{font-size:13px;color:#687568;margin-bottom:0}
-.report-note{
- background:#edf2e7;padding:17px;border-radius:12px;
- color:#53604f;font-size:12px;margin-top:20px;
-}
-
-/* PATOGENOS */
-
-.pathogen{
- background:#fff;border-radius:18px;overflow:hidden;
- border:1px solid #e1e8dc;
-}
-.pathogen-visual{
- min-height:150px;display:grid;place-items:center;
- background:linear-gradient(140deg,#19351e,#47652c);
- font-size:70px;
-}
-.pathogen-content{padding:23px}
-.pathogen-content h3{font:700 22px 'Space Grotesk'}
-.pathogen-content p{font-size:13px;color:#5f6b5c}
-.pathogen-content strong{color:#648d2c}
-
-/* PESQUISAS */
-
-.research-area{margin-top:70px}
-.research-area>p{color:var(--muted);max-width:750px}
-.research{
- background:white;color:#1a291b;border-radius:17px;
- padding:24px;border:1px solid #dfe8d9;
- display:flex;flex-direction:column;
- transition:.25s;
-}
-.research:hover{transform:translateY(-5px)}
-.research-meta{
- display:flex;justify-content:space-between;gap:10px;
- color:#668d32;font-size:10px;font-weight:800;
-}
-.research h3{
- font:700 17px/1.3 'Space Grotesk';margin:17px 0 10px;
-}
-.research p{font-size:13px;color:#5c695b}
-.research a{
- display:inline-block;margin-top:auto;padding-top:12px;
- color:#527c24;font-weight:800;font-size:12px;
- border-bottom:1px solid #9ebd71;align-self:flex-start;
-}
-
-/* SOLUCAO */
-
-.solution{
- background:linear-gradient(145deg,#0b1c10,#142b19);
-}
-.solution-box{
- border:1px solid var(--line);border-radius:22px;
- padding:35px;background:rgba(255,255,255,.035);
-}
-.solution-box h3{font:700 28px 'Space Grotesk'}
-.solution-box p{color:var(--muted)}
-.solution-illustration{
- min-height:290px;border-radius:18px;
- display:grid;place-items:center;text-align:center;
- padding:25px;
- background:radial-gradient(circle at center,#34562b,#112418 65%,#08140c);
- border:1px solid var(--line);
-}
-.solution-illustration .big{font-size:85px}
-.solution-illustration p{font-weight:700;color:var(--green)}
-
-/* FLUXO */
-
-.flow{
- display:flex;align-items:stretch;gap:10px;
- margin-top:38px;
-}
-.flow-item{
- flex:1;text-align:center;padding:19px 10px;
- background:rgba(255,255,255,.045);
- border:1px solid var(--line);border-radius:13px;
-}
-.flow-item span{display:block;color:var(--green);font-size:10px;font-weight:800}
-.flow-item b{display:block;font-size:12px;margin-top:8px}
-.flow-arrow{align-self:center;color:var(--green);font-size:22px}
-
-/* ETAPAS */
-
-.phase{
- display:flex;align-items:center;gap:15px;
- margin:40px 0 20px;
-}
-.phase span{
- background:#1c371e;color:#c6eb72;
- padding:8px 14px;border-radius:30px;
- font-size:10px;font-weight:800;
-}
-.phase h3{font:700 20px 'Space Grotesk';margin:0}
-.phase small{color:#758270}
-
-.step{
- background:white;color:#17251a;
- border-radius:17px;overflow:hidden;
- box-shadow:0 8px 25px rgba(20,45,20,.07);
- transition:.25s;
-}
-.step:hover{transform:translateY(-5px)}
-.step-art{
- height:175px;display:grid;place-items:center;
- background:linear-gradient(145deg,#18351d,#597c36);
- font-size:68px;color:white;
-}
-.step-content{padding:21px}
-.step-content>span{color:#789c39;font-weight:800;font-size:11px}
-.step-content h3{font:700 18px 'Space Grotesk';margin:8px 0}
-.step-content p{font-size:13px;color:#657063;margin:0}
-
-/* VALIDAÇÃO */
-
-.validation{background:#111f15}
-.validation-card{
- border:1px solid var(--line);border-radius:15px;
- padding:20px;background:rgba(255,255,255,.035);
-}
-.validation-card span{color:var(--green);font:700 25px 'Space Grotesk'}
-.validation-card h3{font:700 18px 'Space Grotesk'}
-.validation-card p{font-size:13px;color:var(--muted)}
-
-/* BENEFICIOS */
-
-.benefit{
- background:white;padding:24px;border-radius:15px;
- border:1px solid #dfe8d9;
-}
-.benefit span{color:#719637;font:700 28px 'Space Grotesk'}
-.benefit h3{font:700 17px 'Space Grotesk'}
-.benefit p{font-size:13px;color:#62705f}
-
-/* FINAL */
-
-.final{
- padding:90px 20px;text-align:center;
- background:radial-gradient(circle at 50% 0,#284625,#07130b 75%);
-}
-.final img{
- width:160px;height:160px;object-fit:cover;
- border-radius:50%;border:1px solid var(--green);
-}
-.final h2{font-size:36px}
-.final p{color:var(--muted);max-width:600px;margin:auto}
-
-footer{
- padding:25px 7%;display:flex;justify-content:space-between;
- gap:15px;flex-wrap:wrap;background:#040905;
- color:#899889;font-size:11px;
-}
-footer strong{color:var(--green)}
-
-/* CORES ALTERNATIVAS */
-
-body.blue{
- --bg:#0b1120;
- --surface:#17243a;
- --surface2:#24344d;
- --green:#69dfce;
- --gold:#c4a4fa;
- --line:rgba(105,223,206,.2);
-}
-body.blue .hero{
- background:radial-gradient(ellipse at center,#273d55,#101a2c 55%,#080d18);
-}
-body.blue .solution{
- background:linear-gradient(145deg,#10182a,#24334a);
-}
-body.gold{
- --green:#e2bd68;
- --line:rgba(226,189,104,.2);
-}
-body.gold .hero{
- background:radial-gradient(ellipse at center,#44351b,#1d190f 55%,#090805);
-}
-
-/* ANIMAÇÕES */
-
-.reveal{
- opacity:0;transform:translateY(22px);
- transition:opacity .7s,transform .7s;
-}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-@media(max-width:1000px){
- nav{gap:12px}
- nav a{font-size:10px}
- .grid4{grid-template-columns:repeat(2,1fr)}
- .grid3{grid-template-columns:repeat(2,1fr)}
- .flow{flex-wrap:wrap}
- .flow-item{min-width:40%}
-}
-@media(max-width:700px){
- header{min-height:66px;padding:10px 17px}
- .brand img{width:37px;height:37px}
- .brand span{font-size:14px}
- .menu-button{display:block}
- nav{
-  display:none;position:absolute;top:66px;left:0;
-  width:100%;padding:22px;background:#08150c;
-  flex-direction:column;align-items:flex-start;
- }
- nav.open{display:flex}
- nav a{font-size:14px}
- .section{padding:75px 20px}
- .grid2,.grid3,.grid4{grid-template-columns:1fr}
- .hero h1{letter-spacing:-2px}
- .hero p{font-size:15px}
- .logo-main{width:225px}
- .demand-art{min-height:280px}
- .flow{flex-direction:column}
- .flow-arrow{transform:rotate(90deg)}
- .flow-item{width:100%}
- .phase{flex-wrap:wrap}
- .phase small{width:100%}
- .report{padding:17px}
- footer{flex-direction:column}
-}
-@media(prefers-reduced-motion:reduce){
- *,*::before,*::after{
-  animation:none!important;transition:none!important;
-  scroll-behavior:auto!important;
- }
- .reveal{opacity:1;transform:none}
-}
+:root{--bg:#07130b;--panel:#101e14;--panel2:#17291c;--text:#f5f7ed;--muted:#b4c1b0;--accent:#b8e63f;--gold:#dfb653;--line:rgba(184,230,63,.2);--cream:#f0f3e9;--ink:#18251a;--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:86px}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font:inherit}.progress{position:fixed;z-index:300;top:0;left:0;height:3px;width:0;background:var(--accent)}
+header{position:fixed;z-index:200;inset:0 0 auto;min-height:76px;padding:10px clamp(16px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:18px;background:rgba(5,14,8,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;white-space:nowrap;font:700 16px 'Space Grotesk';letter-spacing:1.4px}.brand img{width:44px;height:44px;object-fit:cover;border-radius:50%;border:1px solid var(--accent)}.brand b{color:var(--accent)}
+nav{display:flex;align-items:center;gap:clamp(10px,2vw,25px)}nav a{font-size:12px;color:var(--muted);transition:.2s}nav a:hover{color:var(--accent)}.menu-toggle,.palette{border:1px solid var(--line);background:transparent;color:var(--text);padding:9px 13px;border-radius:30px;cursor:pointer}.menu-toggle{display:none}
+.hero{min-height:100svh;position:relative;overflow:hidden;display:grid;place-items:center;text-align:center;padding:125px 20px 90px;background:radial-gradient(ellipse at 50% 38%,#244526 0,#102416 38%,#07130b 77%)}
+.hero:before,.hero:after{content:"";position:absolute;width:620px;height:620px;border:1px solid rgba(184,230,63,.14);border-radius:50%;pointer-events:none}.hero:after{width:820px;height:820px;border-style:dashed;opacity:.45;animation:spin 75s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.hero-content{position:relative;z-index:2;max-width:900px}.eyebrow,.kicker{font-size:11px;font-weight:800;letter-spacing:3px;color:var(--accent)}.hero-logo{width:min(255px,60vw);aspect-ratio:1;object-fit:cover;border-radius:50%;margin:24px auto;border:1px solid rgba(184,230,63,.55);box-shadow:0 0 70px rgba(184,230,63,.16)}
+h1,h2,h3{font-family:'Space Grotesk';line-height:1.1}h1{font-size:clamp(42px,7vw,82px);letter-spacing:-3px;margin:14px 0}h1 em,h2 em{font-style:normal;color:var(--accent)}.hero p{max-width:700px;margin:20px auto;color:var(--muted);font-size:clamp(16px,2vw,19px)}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;padding:13px 21px;border-radius:40px;font-size:13px;font-weight:800;transition:.25s}.btn:hover{transform:translateY(-3px)}.primary{background:var(--accent);color:#10190c}.outline{border:1px solid var(--line)}.tags{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:28px}.tags span{border:1px solid var(--line);padding:6px 12px;border-radius:30px;color:var(--muted);font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.section{padding:clamp(75px,9vw,120px) clamp(20px,7vw,105px)}.light{background:var(--cream);color:var(--ink)}.section-head{max-width:820px;margin-bottom:42px}.kicker{color:#769b32}h2{font-size:clamp(34px,5.5vw,62px);letter-spacing:-2px;margin:12px 0 18px} .light h2 em{color:#72972e}.intro{font-size:17px;color:var(--muted);max-width:780px}.light .intro{color:#5c6959}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.photo-panel{position:relative;min-height:360px;border-radius:var(--radius);overflow:hidden;background:#17271b;border:1px solid var(--line)}.photo-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.photo-caption{position:absolute;bottom:0;left:0;right:0;padding:35px 20px 17px;color:white;font-size:11px;letter-spacing:1px;background:linear-gradient(transparent,rgba(0,0,0,.82))}
+.issue{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid #d6dfd0}.issue>span{font:700 26px 'Space Grotesk';color:#789b32}.issue h3{font-size:18px;margin:0 0 5px}.issue p{font-size:14px;color:#59675a;margin:0}.goal{background:#dce8d0;border-radius:16px;padding:22px;margin-top:18px}.goal p{margin:6px 0 0;color:#566451;font-size:14px}
+.card{border:1px solid var(--line);border-radius:18px;padding:24px;background:rgba(255,255,255,.035)}.card h3{font-size:20px;margin:10px 0}.card p{font-size:14px;color:var(--muted);margin-bottom:0}.light .card{background:white;border-color:#dfe7d9;color:var(--ink)}.light .card p{color:#5c6959}
+.report{background:#fff;color:#19271a;border-radius:22px;padding:26px;border:1px solid #dce5d5}.report-top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.report-label{font-size:10px;letter-spacing:2px;color:#718d42;font-weight:800}.report h3{font-size:23px;margin:8px 0}.report small{color:#687568}.result{border:1px solid #e0e7dc;border-radius:14px;padding:18px;background:#f8faf5}.status{font-size:10px;font-weight:800;letter-spacing:1px;color:#64872d}.status.warn{color:#ad7927}.result h3{font-size:18px}.value{display:block;font:700 25px 'Space Grotesk';color:#557e25;margin:10px 0 3px}.result p{font-size:13px;color:#687568;margin:8px 0 0}.report-note{background:#edf2e7;border-radius:12px;padding:16px;margin-top:18px;color:#53604f;font-size:12px}
+.research{background:white;color:#19271a;border-radius:16px;padding:23px;border:1px solid #dfe7d9}.research small{color:#6d8e36;font-weight:800;letter-spacing:1px}.research h3{font-size:18px;margin:12px 0}.research p{font-size:13px;color:#5c6959}.research a{display:inline-block;margin-top:8px;color:#527c24;font-weight:800;font-size:12px;border-bottom:1px solid #9ebd71}
+.solution{background:linear-gradient(145deg,#0b1c10,#142b19)}.solution-visual{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#102116}.solution-visual img{width:100%;height:100%;max-height:480px;object-fit:contain;background:#0b170e}.solution-copy{padding:15px 0}.solution-copy h3{font-size:25px}.solution-copy p{color:var(--muted)}
+.flow{display:flex;align-items:stretch;gap:9px;margin-top:34px}.flow-item{flex:1;text-align:center;padding:17px 10px;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:13px}.flow-item span{display:block;color:var(--accent);font-size:10px;font-weight:800}.flow-item b{display:block;font-size:12px;margin-top:7px}.flow-arrow{align-self:center;color:var(--accent);font-size:20px}
+.phase{display:flex;align-items:center;gap:14px;margin:42px 0 20px;flex-wrap:wrap}.phase span{background:#1c371e;color:#c6eb72;padding:7px 13px;border-radius:30px;font-size:10px;font-weight:800;letter-spacing:1px}.phase h3{font-size:21px;margin:0}.phase small{color:var(--muted)}
+.step{background:white;color:#17251a;border-radius:16px;overflow:hidden;box-shadow:0 8px 25px rgba(20,45,20,.07);transition:.25s}.step:hover{transform:translateY(-5px)}.step img{width:100%;height:190px;object-fit:cover;background:#e8ede2}.step-body{padding:18px}.step-body span{color:#789c39;font-weight:800;font-size:10px;letter-spacing:1px}.step-body h3{font-size:17px;margin:7px 0}.step-body p{font-size:13px;color:#657063;margin:0}
+.gallery{background:#f0f3e9;color:var(--ink)}.gallery .intro{color:#59685a}.gallery-item{position:relative;overflow:hidden;border-radius:15px;background:#dce4d7;min-height:210px}.gallery-item img{width:100%;height:230px;object-fit:cover;transition:transform .5s}.gallery-item:hover img{transform:scale(1.045)}.gallery-item p{margin:0;padding:12px 14px;font-size:12px;font-weight:700;color:#293729;background:#fff}
+.validation{background:#111f15}.validation-card{border:1px solid var(--line);border-radius:15px;padding:20px;background:rgba(255,255,255,.035)}.validation-card span{color:var(--accent);font:700 24px 'Space Grotesk'}.validation-card h3{font-size:18px}.validation-card p{font-size:13px;color:var(--muted);margin-bottom:0}
+.competition{background:linear-gradient(140deg,#182c1b,#0a160d);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,5vw,48px);display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:center}.competition h3{font-size:clamp(26px,4vw,40px);margin:12px 0}.competition p{color:var(--muted)}.phase-box{padding:22px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.04)}.phase-box b{display:block;color:var(--accent);font-size:12px;letter-spacing:1px}.phase-box strong{display:block;font:700 25px 'Space Grotesk';margin:8px 0}.phase-box p{font-size:13px;margin:0}
+.final{padding:80px 20px;text-align:center;background:radial-gradient(circle at 50% 0,#284625,#07130b 75%)}.final img{width:135px;height:135px;object-fit:cover;border-radius:50%;border:1px solid var(--accent);margin:0 auto 18px}.final h2{font-size:clamp(30px,4vw,44px)}.final p{color:var(--muted);max-width:650px;margin:0 auto}
+footer{padding:23px 7%;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#040905;color:#899889;font-size:11px}footer strong{color:var(--accent)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s,transform .65s}.reveal.visible{opacity:1;transform:none}
+body.blue{--bg:#0b1120;--panel:#17243a;--accent:#69dfce;--line:rgba(105,223,206,.2)}body.blue .hero{background:radial-gradient(ellipse at center,#273d55,#101a2c 55%,#080d18)}body.gold{--accent:#e2bd68;--line:rgba(226,189,104,.2)}body.gold .hero{background:radial-gradient(ellipse at center,#44351b,#1d190f 55%,#090805)}
+@media(max-width:950px){nav{gap:10px}nav a{font-size:10px}.grid4{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(2,1fr)}.flow{flex-wrap:wrap}.flow-item{min-width:28%}}
+@media(max-width:700px){header{min-height:66px;padding:9px 15px}.brand img{width:37px;height:37px}.brand{font-size:13px}.menu-toggle{display:block}nav{display:none;position:absolute;top:66px;left:0;right:0;padding:20px;background:#08150c;flex-direction:column;align-items:flex-start}nav.open{display:flex}nav a{font-size:14px}.section{padding:72px 19px}.grid2,.grid3,.grid4{grid-template-columns:1fr}.hero h1{letter-spacing:-2px}.hero-logo{width:210px}.photo-panel{min-height:280px}.flow{flex-direction:column}.flow-arrow{transform:rotate(90deg)}.flow-item{width:100%}.competition{grid-template-columns:1fr}.report{padding:17px}.step img{height:210px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
-
 <body>
 <div class="progress" id="progress"></div>
-
 <header>
- <a href="#inicio" class="brand">
-  <img src="logo-ldrj-compost.jpg" alt="Logo LDRJ COMPOST"
-       onerror="this.style.display='none'">
-  <span>LDRJ <b>COMPOST</b></span>
- </a>
-
- <button class="control menu-button" id="menuButton" aria-label="Abrir menu">☰</button>
-
+ <a class="brand" href="#inicio"><img src="logo-ldrj-compost.jpg" alt="Logo oficial LDRJ COMPOST"><span>LDRJ <b>COMPOST</b></span></a>
+ <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
  <nav id="menu">
-  <a href="#demanda">Demanda</a>
-  <a href="#laudo">Laudo</a>
-  <a href="#pesquisas">Pesquisas</a>
-  <a href="#solucao">Solução</a>
-  <a href="#processo">Processo</a>
-  <a href="#validacao">Avaliação</a>
+  <a href="#demanda">Demanda</a><a href="#diagnostico">Diagnóstico</a><a href="#pesquisa">Pesquisa</a><a href="#solucao">Solução</a><a href="#processo">Processo</a><a href="#galeria">Galeria</a><a href="#grandprix">Grand Prix</a>
  </nav>
-
- <div class="controls">
-  <button class="control" id="palette" title="Mudar cores">◐</button>
- </div>
+ <button class="palette" id="palette" aria-label="Alternar paleta de cores" title="Alternar paleta">◐</button>
 </header>
-
 <main>
-
-<!-- ABERTURA -->
-
 <section class="hero" id="inicio">
  <div class="hero-content">
   <div class="eyebrow">BIOTECNOLOGIA · AGROINDÚSTRIA · INOVAÇÃO</div>
-
-  <img class="logo-main" src="logo-ldrj-compost.jpg"
-       alt="Identidade visual da LDRJ COMPOST"
-       onerror="this.style.opacity='.15'">
-
+  <img class="hero-logo" src="logo-ldrj-compost.jpg" alt="Identidade visual oficial da LDRJ COMPOST">
   <h1>Resíduos que ganham <em>um novo ciclo.</em></h1>
-
-  <p>
-   Um sistema integrado de bioconversão por mosca-soldado-negra
-   e compostagem convencional para resíduos agroindustriais.
-  </p>
-
-  <div class="actions">
-   <a class="btn primary" href="#solucao">Conheça nossa solução ↗</a>
-   <a class="btn secondary" href="#demanda">Entenda a demanda</a>
-  </div>
-
-  <div class="tags">
-   <span>Hermetia illucens</span>
-   <span>Bioconversão</span>
-   <span>Compostagem</span>
-   <span>Fazenda Água Santa</span>
-  </div>
+  <p>Uma proposta de sistema integrado de bioconversão por mosca-soldado-negra e compostagem convencional para o aproveitamento de resíduos agroindustriais.</p>
+  <div class="actions"><a class="btn primary" href="#solucao">Conheça a proposta ↗</a><a class="btn outline" href="#processo">Veja o processo</a></div>
+  <div class="tags"><span>Hermetia illucens</span><span>Bioconversão</span><span>Compostagem</span><span>Fazenda Água Santa</span></div>
  </div>
 </section>
-
-<!-- DEMANDA -->
 
 <section class="section light" id="demanda">
- <div class="section-heading reveal">
-  <div class="kicker">01 / NOSSA DEMANDA</div>
-  <h2>Um desafio que começa nos <em>resíduos agropecuários.</em></h2>
-  <p class="intro">
-   A Fazenda Água Santa, localizada em Perdizes–MG, desenvolve
-   atividades de cultivo de batata e criação de bovinos em confinamento.
-   Essas atividades geram resíduos orgânicos que são aproveitados
-   na produção de composto.
-  </p>
- </div>
-
+ <div class="section-head reveal"><div class="kicker">01 / CONTEXTO E DEMANDA</div><h2>Um desafio que começa nos <em>resíduos agropecuários.</em></h2><p class="intro">Na Fazenda Água Santa, em Perdizes–MG, as atividades de cultivo de batata e criação de bovinos geram resíduos orgânicos que precisam ser tratados e aproveitados com responsabilidade.</p></div>
  <div class="grid2">
-  <div class="demand-art reveal">
-   <div class="symbol">🥔 🌱 🐄</div>
-   <h3>Resíduos de batata e esterco bovino</h3>
-   <p>
-    Duas fontes de matéria orgânica que precisam ser tratadas
-    e aproveitadas de maneira adequada.
-   </p>
-  </div>
-
+  <div class="photo-panel reveal"><img src="etapa-1.jpg" alt="Registro visual da primeira etapa do projeto" loading="lazy"><div class="photo-caption">REGISTRO DO PROJETO · ETAPA 01</div></div>
   <div class="reveal">
-   <div class="problem">
-    <div class="problem-number">01</div>
-    <div>
-     <h3>Contaminantes biológicos</h3>
-     <p>
-      A possível permanência de microrganismos causadores de doenças
-      durante o tratamento dos resíduos exige atenção.
-     </p>
-    </div>
-   </div>
-
-   <div class="problem">
-    <div class="problem-number">02</div>
-    <div>
-     <h3>Segurança do solo e das culturas</h3>
-     <p>
-      A qualidade microbiológica do composto é importante para
-      reduzir riscos de disseminação de doenças agrícolas.
-     </p>
-    </div>
-   </div>
-
-   <div class="problem">
-    <div class="problem-number">03</div>
-    <div>
-     <h3>Perdas produtivas e econômicas</h3>
-     <p>
-      Problemas fitossanitários podem afetar a produção,
-      aumentar custos e comprometer o aproveitamento agrícola.
-     </p>
-    </div>
-   </div>
-
-   <div class="goal">
-    <strong>O que a demanda procura?</strong>
-    <p>
-     Melhorar o tratamento dos resíduos, aumentar a confiabilidade
-     biológica do composto e aproveitar melhor os materiais
-     gerados na propriedade.
-    </p>
-   </div>
+   <div class="issue"><span>01</span><div><h3>Resíduos orgânicos diversos</h3><p>Resíduos de batata e esterco bovino apresentam características diferentes e exigem planejamento para seu tratamento.</p></div></div>
+   <div class="issue"><span>02</span><div><h3>Qualidade microbiológica</h3><p>A presença de microrganismos de interesse fitossanitário torna importante investigar a qualidade do composto produzido.</p></div></div>
+   <div class="issue"><span>03</span><div><h3>Aproveitamento dos materiais</h3><p>A proposta busca integrar etapas de tratamento para valorizar os resíduos e contribuir para um processo mais organizado.</p></div></div>
+   <div class="goal"><b>Questão central</b><p>Como integrar a bioconversão por larvas de mosca-soldado-negra à compostagem já existente, acompanhando a qualidade do material ao longo do processo?</p></div>
   </div>
  </div>
 </section>
 
-<!-- LAUDO -->
-
-<section class="section evidence" id="laudo">
- <div class="section-heading reveal">
-  <div class="kicker">02 / DIAGNÓSTICO LABORATORIAL</div>
-  <h2>O que foi identificado <em>no laudo?</em></h2>
-  <p class="intro">
-   O laudo nº 13545/2026 apresenta resultados da análise molecular
-   de uma amostra identificada como composto teste.
-   Os resultados orientam os alvos de investigação da LDRJ COMPOST.
-  </p>
- </div>
-
+<section class="section" id="diagnostico">
+ <div class="section-head reveal"><div class="kicker">02 / DIAGNÓSTICO LABORATORIAL</div><h2>O que o <em>laudo orienta investigar.</em></h2><p class="intro">Os resultados abaixo devem ser interpretados como informações da amostra analisada, não como uma conclusão sobre todos os resíduos ou sobre o desempenho da solução proposta.</p></div>
  <div class="report reveal">
-  <div class="report-top">
-   <div>
-    <div class="report-label">LAUDO DE QUANTIFICAÇÃO MOLECULAR</div>
-    <h3>Microrganismos de interesse agrícola</h3>
-    <small>Documento nº 13545/2026 · Amostra: Composto teste</small>
-   </div>
-   <div style="font-size:35px">🔬</div>
+  <div class="report-top"><div><div class="report-label">ANÁLISE MOLECULAR · AMOSTRA DE COMPOSTO</div><h3>Microrganismos de interesse agrícola</h3><small>Laudo nº 13545/2026 · Amostra identificada como “composto teste”</small></div><div style="font-size:34px" aria-hidden="true">🔬</div></div>
+  <div class="grid3" style="margin-top:24px">
+   <article class="result"><div class="status">● DETECTADO</div><h3><i>Fusarium</i> sp.</h3><span class="value">9,34 × 10³</span><small>Valor apresentado no laudo</small><p>O resultado indica detecção na amostra analisada.</p></article>
+   <article class="result"><div class="status">● DETECTADO</div><h3><i>Spongospora subterranea</i></h3><span class="value">Detectado</span><small>Contagem não realizada</small><p>O documento registra detecção, sem quantificação.</p></article>
+   <article class="result"><div class="status warn">● NÃO DETECTADO</div><h3><i>Verticillium</i> sp.</h3><span class="value">Não detectado</span><small>Na amostra analisada</small><p>Resultado restrito à amostra e ao método utilizado.</p></article>
   </div>
-
-  <div class="grid3" style="margin-top:25px">
-   <article class="result">
-    <div class="status">● PRESENÇA DETECTADA</div>
-    <h3><i>Fusarium</i> sp.</h3>
-    <span class="value">9,34 × 10³</span>
-    <small>UFC/g — conforme apresentado no laudo</small>
-    <p>Detecção com valor quantitativo informado no documento.</p>
-   </article>
-
-   <article class="result">
-    <div class="status">● PRESENÇA DETECTADA</div>
-    <h3><i>Spongospora subterranea</i></h3>
-    <span class="value">Detectado</span>
-    <small>Contagem não realizada</small>
-    <p>O laboratório identificou o organismo na amostra.</p>
-   </article>
-
-   <article class="result">
-    <div class="status warning">● NÃO DETECTADO</div>
-    <h3><i>Verticillium</i> sp.</h3>
-    <span class="value">Não detectado</span>
-    <small>Na amostra analisada</small>
-    <p>Resultado referente à amostra e ao método empregado.</p>
-   </article>
-  </div>
-
-  <div class="report-note">
-   <strong>Leitura do diagnóstico:</strong>
-   o laudo corresponde à amostra analisada. A interpretação da
-   viabilidade dos microrganismos depende de métodos complementares
-   apropriados.
-  </div>
- </div>
-
- <div class="section-heading reveal" style="margin-top:65px">
-  <div class="kicker">MICRORGANISMOS IDENTIFICADOS</div>
-  <h2>Conheça os <em>alvos biológicos.</em></h2>
- </div>
-
- <div class="grid3">
-  <article class="pathogen reveal">
-   <div class="pathogen-visual">🧫</div>
-   <div class="pathogen-content">
-    <div class="kicker">ALVO 01 · DETECTADO</div>
-    <h3><i>Fusarium</i> sp.</h3>
-    <p>
-     Gênero de fungos que inclui espécies causadoras de doenças
-     em diferentes culturas agrícolas, como murchas vasculares
-     e problemas radiculares.
-    </p>
-    <strong>Importância:</strong>
-    <p>
-     Investigar sua presença e comportamento durante as etapas
-     de tratamento dos resíduos.
-    </p>
-   </div>
-  </article>
-
-  <article class="pathogen reveal">
-   <div class="pathogen-visual">🥔</div>
-   <div class="pathogen-content">
-    <div class="kicker">ALVO 02 · DETECTADO</div>
-    <h3><i>Spongospora subterranea</i></h3>
-    <p>
-     Agente associado à sarna-pulverulenta da batata.
-     Apresenta estruturas de resistência que podem permanecer
-     no ambiente por períodos prolongados.
-    </p>
-    <strong>Importância:</strong>
-    <p>
-     Investigar a persistência das estruturas de resistência
-     e os métodos de avaliação de viabilidade.
-    </p>
-   </div>
-  </article>
-
-  <article class="pathogen reveal">
-   <div class="pathogen-visual">🌱</div>
-   <div class="pathogen-content">
-    <div class="kicker">ALVO 03 · NÃO DETECTADO</div>
-    <h3><i>Verticillium</i> sp.</h3>
-    <p>
-     Gênero de fungos que inclui espécies causadoras de
-     murchas vasculares em diversas culturas agrícolas.
-    </p>
-    <strong>Importância:</strong>
-    <p>
-     Acompanhar sua ocorrência e compreender sua relação
-     com o ambiente e a matéria orgânica.
-    </p>
-   </div>
-  </article>
+  <div class="report-note"><b>Nota de interpretação:</b> detecção molecular não comprova, por si só, viabilidade ou capacidade de causar doença. A proposta prevê avaliações laboratoriais complementares e comparação de amostras ao longo das etapas.</div>
  </div>
 </section>
 
-<!-- PESQUISAS -->
-
-<section class="section" id="pesquisas">
- <div class="section-heading reveal">
-  <div class="kicker">03 / FUNDAMENTAÇÃO CIENTÍFICA</div>
-  <h2>O que a <em>ciência já investigou.</em></h2>
-  <p class="intro">
-   Pesquisas sobre mosca-soldado-negra, compostagem,
-   microrganismos fitopatogênicos e materiais orgânicos.
-   Cada estudo apresenta uma contribuição para compreender
-   os processos envolvidos na proposta.
-  </p>
+<section class="section light" id="pesquisa">
+ <div class="section-head reveal"><div class="kicker">03 / FUNDAMENTAÇÃO E PESQUISA</div><h2>Da investigação científica à <em>proposta prática.</em></h2><p class="intro">A pesquisa do projeto reúne três frentes: bioconversão de resíduos pela mosca-soldado-negra, integração com compostagem e avaliação da qualidade do material final.</p></div>
+ <div class="grid3">
+  <article class="card reveal"><div class="kicker">FRENTE 01</div><h3>Bioconversão</h3><p>Estudar o uso de larvas de <i>Hermetia illucens</i> no processamento de parte da matéria orgânica recebida.</p></article>
+  <article class="card reveal"><div class="kicker">FRENTE 02</div><h3>Integração de processos</h3><p>Planejar o encaminhamento do material remanescente para a compostagem convencional já utilizada na propriedade.</p></article>
+  <article class="card reveal"><div class="kicker">FRENTE 03</div><h3>Controle e análise</h3><p>Acompanhar massa, características físico-químicas e parâmetros microbiológicos em pontos definidos do processo.</p></article>
  </div>
+ <div class="grid2" style="margin-top:24px">
+  <article class="research reveal"><small>BASE TÉCNICA · MOSCA-SOLDADO-NEGRA</small><h3><i>Hermetia illucens</i> no tratamento de resíduos orgânicos</h3><p>A literatura científica investiga a capacidade das larvas de transformar diferentes substratos orgânicos. O desempenho depende do tipo de resíduo e das condições do processo.</p><a href="https://scholar.google.com/scholar?q=Hermetia+illucens+organic+waste+bioconversion" target="_blank" rel="noopener">Consultar estudos científicos ↗</a></article>
+  <article class="research reveal"><small>BASE TÉCNICA · COMPOSTAGEM</small><h3>Compostagem e qualidade microbiológica</h3><p>Estudos avaliam como as condições de compostagem influenciam a estabilidade do material e a ocorrência de microrganismos de interesse.</p><a href="https://scholar.google.com/scholar?q=composting+phytopathogens+microbial+safety" target="_blank" rel="noopener">Consultar estudos científicos ↗</a></article>
+ </div>
+</section>
 
+<section class="section solution" id="solucao">
+ <div class="section-head reveal"><div class="kicker">04 / NOSSA SOLUÇÃO</div><h2>Um sistema integrado de <em>bioconversão.</em></h2><p class="intro">A proposta é instalar uma estrutura própria para criação de mosca-soldado-negra, com recebimento dos resíduos, alimentação das larvas e separação das larvas maduras por rampas de auto-colheita.</p></div>
  <div class="grid2">
+  <div class="solution-visual reveal"><img src="modulo-bioconversao-ilustrativo.png" alt="Representação ilustrativa do módulo de bioconversão proposto" loading="lazy"></div>
+  <div class="solution-copy reveal"><div class="kicker">MÓDULO PROPOSTO</div><h3>Da entrada do resíduo à separação das larvas</h3><p>Os resíduos selecionados são direcionados ao módulo de bioconversão. Durante o desenvolvimento, as larvas consomem parte do substrato. Ao atingirem a fase de pré-pupa, podem migrar pelas rampas de auto-colheita, permitindo sua separação.</p><p>O material remanescente segue para a etapa de compostagem convencional, com acompanhamento e análises planejadas.</p></div>
+ </div>
+ <div class="flow" aria-label="Fluxo resumido do processo">
+  <div class="flow-item"><span>ENTRADA</span><b>Resíduos orgânicos</b></div><div class="flow-arrow">→</div>
+  <div class="flow-item"><span>ETAPA 01</span><b>Bioconversão larval</b></div><div class="flow-arrow">→</div>
+  <div class="flow-item"><span>SEPARAÇÃO</span><b>Auto-colheita</b></div><div class="flow-arrow">→</div>
+  <div class="flow-item"><span>ETAPA 02</span><b>Compostagem</b></div><div class="flow-arrow">→</div>
+  <div class="flow-item"><span>AVALIAÇÃO</span><b>Análises do composto</b></div>
+ </div>
+</section>
 
-  <article class="research reveal">
-   <div class="research-meta"><span>2024</span><span>BIOCONVERSÃO</span></div>
-   <h3>Inhibition of pathogenic microorganisms in solid organic waste via black soldier fly larvae-mediated management</h3>
-   <p><strong>Shi et al. · Science of the Total Environment</strong></p>
-   <p>
-    Comparou resíduos orgânicos em compostagem
+<section class="section light" id="processo">
+ <div class="section-head reveal"><div class="kicker">05 / NOSSO PROCESSO</div><h2>Como o projeto <em>funciona.</em></h2><p class="intro">As etapas abaixo apresentam o fluxo proposto para a operação integrada. A sequência poderá ser ajustada conforme os testes, o planejamento de instalação e os resultados das avaliações.</p></div>
+ <div class="phase"><span>ETAPA A</span><h3>Bioconversão por larvas</h3><small>Recebimento, processamento e separação</small></div>
+ <div class="grid4">
+  <article class="step reveal"><img src="etapa-1.jpg" alt="Registro da etapa 1" loading="lazy"><div class="step-body"><span>01 · RECEBIMENTO</span><h3>Entrada dos resíduos</h3><p>Recepção e identificação dos resíduos orgânicos selecionados.</p></div></article>
+  <article class="step reveal"><img src="etapa-2.jpg" alt="Registro da etapa 2" loading="lazy"><div class="step-body"><span>02 · PREPARAÇÃO</span><h3>Preparação do substrato</h3><p>Organização do material para alimentação do sistema.</p></div></article>
+  <article class="step reveal"><img src="etapa-3.jpg" alt="Registro da etapa 3" loading="lazy"><div class="step-body"><span>03 · BIOCONVERSÃO</span><h3>Atuação das larvas</h3><p>As larvas processam parte da matéria orgânica disponibilizada.</p></div></article>
+  <article class="step reveal"><img src="etapa-4.jpg" alt="Registro da etapa 4" loading="lazy"><div class="step-body"><span>04 · SEPARAÇÃO</span><h3>Auto-colheita</h3><p>Rampas permitem a migração e a separação das larvas maduras.</p></div></article>
+ </div>
+ <div class="phase"><span>ETAPA B</span><h3>Compostagem e avaliação</h3><small>Tratamento do material remanescente e controle de qualidade</small></div>
+ <div class="grid4">
+  <article class="step reveal"><img src="etapa-5.jpg" alt="Registro da etapa 5" loading="lazy"><div class="step-body"><span>05 · ENCAMINHAMENTO</span><h3>Material remanescente</h3><p>O material segue para a estrutura de compostagem convencional.</p></div></article>
+  <article class="step reveal"><img src="etapa-6.jpg" alt="Registro da etapa 6" loading="lazy"><div class="step-body"><span>06 · COMPOSTAGEM</span><h3>Leiras</h3><p>Continuidade do tratamento orgânico conforme o manejo adotado.</p></div></article>
+  <article class="step reveal"><img src="etapa-7.jpg" alt="Registro da etapa 7" loading="lazy"><div class="step-body"><span>07 · MONITORAMENTO</span><h3>Acompanhamento</h3><p>Registro de massa e de características físico-químicas do material.</p></div></article>
+  <article class="step reveal"><img src="etapa-8.jpg" alt="Registro da etapa 8" loading="lazy"><div class="step-body"><span>08 · ANÁLISES</span><h3>Avaliação final</h3><p>Análises laboratoriais para investigar a qualidade do composto obtido.</p></div></article>
+ </div>
+</section>
+
+<section class="section gallery" id="galeria">
+ <div class="section-head reveal"><div class="kicker">06 / GALERIA DO PROJETO</div><h2>Imagens que mostram o <em>desenvolvimento.</em></h2><p class="intro">Registros e representações visuais organizados para apresentar as etapas do projeto. As imagens identificadas como ilustrativas representam a proposta, não resultados experimentais.</p></div>
+ <div class="grid3">
+  <div class="gallery-item reveal"><img src="etapa-1.jpg" alt="Registro do projeto, etapa 1" loading="lazy"><p>Registro · Etapa 01</p></div>
+  <div class="gallery-item reveal"><img src="etapa-2.jpg" alt="Registro do projeto, etapa 2" loading="lazy"><p>Registro · Etapa 02</p></div>
+  <div class="gallery-item reveal"><img src="etapa-3.jpg" alt="Registro do projeto, etapa 3" loading="lazy"><p>Registro · Etapa 03</p></div>
+  <div class="gallery-item reveal"><img src="etapa-4.jpg" alt="Registro do projeto, etapa 4" loading="lazy"><p>Registro · Etapa 04</p></div>
+  <div class="gallery-item reveal"><img src="etapa-5.jpg" alt="Registro do projeto, etapa 5" loading="lazy"><p>Registro · Etapa 05</p></div>
+  <div class="gallery-item reveal"><img src="fluxo-visual-original.png" alt="Fluxo visual ilustrativo do projeto" loading="lazy"><p>Fluxo integrado · Representação visual</p></div>
+ </div>
+</section>
+
+<section class="section validation" id="avaliacao">
+ <div class="section-head reveal"><div class="kicker">07 / AVALIAÇÃO E CONTROLE</div><h2>O que pretendemos <em>acompanhar.</em></h2><p class="intro">A avaliação será fundamental para verificar o comportamento do processo. Nenhuma eficiência de remoção ou resultado final é considerada comprovada antes da realização e interpretação dos ensaios.</p></div>
+ <div class="grid3">
+  <article class="validation-card reveal"><span>01</span><h3>Balanço de massa</h3><p>Registrar as massas recebidas, encaminhadas e obtidas em cada etapa.</p></article>
+  <article class="validation-card reveal"><span>02</span><h3>Características físico-químicas</h3><p>Acompanhar parâmetros definidos no planejamento laboratorial.</p></article>
+  <article class="validation-card reveal"><span>03</span><h3>Parâmetros microbiológicos</h3><p>Comparar amostras e investigar os microrganismos de interesse.</p></article>
+ </div>
+</section>
+
+<section class="section" id="grandprix">
+ <div class="section-head reveal"><div class="kicker">08 / JORNADA DE INOVAÇÃO</div><h2>Grand Prix SENAI <em>2026–2027.</em></h2><p class="intro">O projeto está sendo apresentado na primeira fase da competição. Nesta etapa, o foco do site é comunicar a demanda, a pesquisa, a proposta de solução e o planejamento de desenvolvimento.</p></div>
+ <div class="competition reveal">
+  <div><div class="kicker">PRIMEIRA FASE · APRESENTAÇÃO DO PROJETO</div><h3>Uma ideia em desenvolvimento, com pesquisa e propósito.</h3><p>A LDRJ COMPOST apresenta uma proposta de inovação aplicada ao aproveitamento de resíduos agroindustriais. O desenvolvimento seguirá conforme os critérios, entregas e orientações oficiais da competição.</p></div>
+  <div class="phase-box"><b>NOSSA SITUAÇÃO</b><strong>1ª fase</strong><p>Apresentação da demanda, fundamentação, solução proposta e planejamento. A classificação ou aprovação em fases seguintes não é presumida.</p></div>
+ </div>
+</section>
+
+<section class="final">
+ <img src="logo-ldrj-compost.jpg" alt="Logo oficial LDRJ COMPOST">
+ <div class="eyebrow">INOVAÇÃO · CIÊNCIA · SUSTENTABILIDADE</div>
+ <h2>Transformar resíduos é criar possibilidades.</h2>
+ <p>LDRJ COMPOST — uma proposta de integração entre bioconversão e compostagem para investigar novos caminhos no aproveitamento de resíduos orgânicos.</p>
+</section>
+</main>
+<footer><span>© 2026 <strong>LDRJ COMPOST</strong> · Projeto de inovação</span><span>Fazenda Água Santa · Perdizes – MG · Grand Prix SENAI 2026–2027</span></footer>
+<script>
+const menu=document.getElementById('menu');
+const toggle=document.getElementById('menuToggle');
+toggle.addEventListener('click',()=>{const open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'✕':'☰'});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));
+document.getElementById('palette').addEventListener('click',()=>{document.body.classList.toggle('blue');if(!document.body.classList.contains('blue'))document.body.classList.toggle('gold')});
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(max>0?window.scrollY/max*100:0)+'%'},{passive:true});
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
